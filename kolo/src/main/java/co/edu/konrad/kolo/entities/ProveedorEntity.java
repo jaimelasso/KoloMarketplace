@@ -36,73 +36,73 @@ public class ProveedorEntity implements Serializable {
     /**
      * Variable que almacena el nit del proveedor
      */
-    @Column (name = "nit_proveedor>", nullable = false)
+    @Column (name = "nit_proveedor", nullable = false)
     private Long nitProveedor;
     
     /**
      * Variable que almacena el nombre del proveedor
      */
-    @Column (name = "nombre_proveedor>")
+    @Column (name = "nombre_proveedor")
     private String nombreProveedor;
     
     /**
      * Variable que almacena el usuario del proveedor
      */
-    @Column (name = "usuario_proveedor>")
+    @Column (name = "usuario_proveedor")
     private String usuarioProveedor;    
 
     /**
      * Variable que almacena el password del proveedor
      */
-    @Column (name = "password_proveedor>")
+    @Column (name = "password_proveedor")
     private String passwordProveedor;    
 
     /**
      * Variable que almacena la URL del avatar del proveedor
      */
-    @Column (name = "urlAvatar_proveedor>")
+    @Column (name = "urlAvatar_proveedor")
     private String urlAvatarProveedor;    
 
     /**
      * Variable que almacena las ventas anuales del proveedor
      */
-    @Column (name = "ventas_anuales>", nullable = false)
+    @Column (name = "ventas_anuales", nullable = false)
     private Long ventasAnuales;
 
     /**
      * Variable que almacena el mercado objetivo del proveedor
      */
-    @Column (name = "mercado_objetivo>")
+    @Column (name = "mercado_objetivo")
     private String mercadoObjetivo;
 
     /**
      * Variable que almacena el nivel de reputación del proveedor
      */
-    @Column (name = "nivel_reputacion>")
-    private int nivelReputacion;
+    @Column (name = "nivel_reputacion")
+    private Long nivelReputacion;
 
     /**
      * Variable que almacena el número de teléfono del proveedor
      */
-    @Column (name = "num_telefono>")
+    @Column (name = "num_telefono")
     private Long numTelefono;
 
     /**
      * Variable que almacena la URL del chat del proveedor
      */
-    @Column (name = "url_chat>")
+    @Column (name = "url_chat")
     private String urlChat;
 
     /**
      * Variable que almacena la dirección del proveedor
      */
-    @Column (name = "direccion_proveedor>")
+    @Column (name = "direccion_proveedor")
     private String direccionProveedor;
     
     /**
      * Variable que almacena la fecha de creación del proveedor
      */
-    @Column (name = "fecha_creacion>")
+    @Column (name = "fecha_creacion")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaCreacion;
   
@@ -143,7 +143,7 @@ public class ProveedorEntity implements Serializable {
         return mercadoObjetivo;
     }
 
-    public int getNivelReputacion() {
+    public Long getNivelReputacion() {
         return nivelReputacion;
     }
 
@@ -195,7 +195,7 @@ public class ProveedorEntity implements Serializable {
         this.mercadoObjetivo = mercadoObjetivo;
     }
 
-    public void setNivelReputacion(int nivelReputacion) {
+    public void setNivelReputacion(Long nivelReputacion) {
         this.nivelReputacion = nivelReputacion;
     }
 
