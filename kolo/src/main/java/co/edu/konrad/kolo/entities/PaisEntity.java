@@ -17,7 +17,7 @@ import javax.persistence.Id;
  * @author Jaime Lasso & Martín Cortés
  */
 @Entity
-public class CiudadEntity implements Serializable{
+public class PaisEntity implements Serializable{
     /**
      * Atributo estático para el manejo de versiones de la entidad
      */
@@ -27,35 +27,35 @@ public class CiudadEntity implements Serializable{
      * Llave primaria de la Entidad Ciudad
      */
     @Id
-    @Column (name = "id_ciudad", unique = true)
+    @Column (name = "id_pais", unique = true)
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private Long idCiudad;
+    private Long idPais;
     
     /**
      * Variable que almacena el nombre de a ciudad
      */
-    @Column (name = "nombre_ciudad")
-    private String nombreCiudad;
-    
+    @Column (name = "nombre_pais")
+    private String nombrePais;
+
     /**
      * Métodos GET Y SET
      * @return 
      */
-
-    public Long getIdCiudad() {
-        return idCiudad;
+    
+    public Long getIdPais() {
+        return idPais;
     }
 
-    public String getNombreCiudad() {
-        return nombreCiudad;
+    public String getNombrePais() {
+        return nombrePais;
     }
 
-    public void setIdCiudad(Long idCiudad) {
-        this.idCiudad = idCiudad;
+    public void setIdPais(Long idPais) {
+        this.idPais = idPais;
     }
 
-    public void setNombreCiudad(String nombreCiudad) {
-        this.nombreCiudad = nombreCiudad;
+    public void setNombrePais(String nombrePais) {
+        this.nombrePais = nombrePais;
     }
-
+    
 }

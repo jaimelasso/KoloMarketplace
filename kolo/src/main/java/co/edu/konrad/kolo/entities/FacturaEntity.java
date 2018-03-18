@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Clase para modelar la Entidad Proveedor
+ * Clase para modelar la Entidad Factura
  * @author Jaime Lasso & Martín Cortés
  */
 @Entity

@@ -27,7 +27,7 @@ public class CarritoComprasEntity implements Serializable {
     private static final long serialVersionUID=1L;
     
     /**
-     * Llave primaria de la Entidad Proveedor
+     * Llave primaria de la Entidad Carrito de Compras
      */
     @Id
     @Column (name = "id_carrito", unique = true)

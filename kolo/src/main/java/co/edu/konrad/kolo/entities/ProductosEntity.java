@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 /**
- * Clase para modelar la Entidad Proveedor
+ * Clase para modelar la Entidad Productos
  * @author Jaime Lasso & Martín Cortés
  */
 @Entity

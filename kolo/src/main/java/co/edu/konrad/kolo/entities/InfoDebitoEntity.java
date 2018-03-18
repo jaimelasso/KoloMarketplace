@@ -13,49 +13,50 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
- * Clase para modelar la Entidad Ciudad
+ * Clase para modelar la Entidad InfoDebito
  * @author Jaime Lasso & Martín Cortés
  */
 @Entity
-public class CiudadEntity implements Serializable{
+public class InfoDebitoEntity implements Serializable{
     /**
      * Atributo estático para el manejo de versiones de la entidad
      */
     private static final long serialVersionUID=1L;
     
     /**
-     * Llave primaria de la Entidad Ciudad
+     * Llave primaria de la Entidad InfoDebito
      */
     @Id
-    @Column (name = "id_ciudad", unique = true)
+    @Column (name = "num_cuenta", unique = true)
     @GeneratedValue (strategy = GenerationType.AUTO)
-    private Long idCiudad;
+    private Long numCuenta;
     
     /**
-     * Variable que almacena el nombre de a ciudad
+     * Variable que almacena el nombre de InfoDebito
      */
-    @Column (name = "nombre_ciudad")
-    private String nombreCiudad;
-    
+    @Column (name = "nombre_banco")
+    private String nombreBanco;
+
+
     /**
      * Métodos GET Y SET
      * @return 
-     */
-
-    public Long getIdCiudad() {
-        return idCiudad;
+     */    
+    
+    public Long getNumCuenta() {
+        return numCuenta;
     }
 
-    public String getNombreCiudad() {
-        return nombreCiudad;
+    public String getNombreBanco() {
+        return nombreBanco;
     }
 
-    public void setIdCiudad(Long idCiudad) {
-        this.idCiudad = idCiudad;
+    public void setNumCuenta(Long numCuenta) {
+        this.numCuenta = numCuenta;
     }
 
-    public void setNombreCiudad(String nombreCiudad) {
-        this.nombreCiudad = nombreCiudad;
+    public void setNombreBanco(String nombreBanco) {
+        this.nombreBanco = nombreBanco;
     }
-
+        
 }
