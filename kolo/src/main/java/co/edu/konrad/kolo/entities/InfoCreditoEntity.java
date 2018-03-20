@@ -19,7 +19,7 @@ import javax.persistence.Temporal;
  * @author Jaime Lasso & Martín Cortés
  */
 @Entity
-public class InfoCredito implements Serializable{
+public class InfoCreditoEntity implements Serializable{
     /**
      * Atributo estático para el manejo de versiones de la entidad
      */
