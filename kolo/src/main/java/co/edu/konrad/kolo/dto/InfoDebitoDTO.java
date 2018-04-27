@@ -54,7 +54,7 @@ public class InfoDebitoDTO {
      * @param infoDebitoList
      * @return Lista TipoPago DTO
      */
-    public static List<InfoDebitoDTO> toInfoPagoList(List<InfoDebitoEntity> infoDebitoList) {
+    public static List<InfoDebitoDTO> toInfoDebitoList(List<InfoDebitoEntity> infoDebitoList) {
         List<InfoDebitoDTO> listaInfoDebitoDTO = new ArrayList<>();
         for (int i = 0; i < infoDebitoList.size(); i++) {
             listaInfoDebitoDTO.add(new InfoDebitoDTO(infoDebitoList.get(i)));

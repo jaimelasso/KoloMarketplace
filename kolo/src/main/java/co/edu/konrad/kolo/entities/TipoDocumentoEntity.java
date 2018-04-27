@@ -35,6 +35,27 @@ public class TipoDocumentoEntity implements Serializable{
      * Variable que almacena el nombre del tipo de documento
      */
     @Column (name = "tipo_documento")
-    private String tipoDocumento;    
+    private String tipoDocumento;
+
+     /**
+     * Métodos GET Y SET
+     * @return 
+     */
+    
+    public Long getIdTipoDocumento() {
+        return idTipoDocumento;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setIdTipoDocumento(Long idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
     
 }
