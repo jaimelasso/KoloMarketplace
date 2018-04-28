@@ -14,6 +14,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
 
 /**
  * Clase para modelar la Entidad Cliente
@@ -45,6 +46,7 @@ public class ClienteEntity implements Serializable{
     private Long numDocumento;    
     
     @Column (name = "fecha_nacimiento")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNacimiento;        
 
     @Column (name = "direccion_cliente")
@@ -52,11 +54,11 @@ public class ClienteEntity implements Serializable{
 
     @OneToMany
     @JoinColumn (name = "id_ciudad")
-    private CiudadEntity idCiudad;    
+    private CiudadEntity ciudad;    
 
     @OneToMany
     @JoinColumn (name = "id_pais")
-    private CiudadEntity idPais;
+    private PaisEntity pais;
 
     @Column (name = "telefono_cliente")
     private Long telefonoCliente;
@@ -74,6 +76,7 @@ public class ClienteEntity implements Serializable{
     private String urlAvatar;    
 
     @Column (name = "fecha_creacion")
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaCreacion; 
     
      /**
@@ -109,12 +112,12 @@ public class ClienteEntity implements Serializable{
         return direccionCliente;
     }
 
-    public CiudadEntity getIdCiudad() {
-        return idCiudad;
+    public CiudadEntity getCiudadEntity() {
+        return ciudad;
     }
 
-    public CiudadEntity getIdPais() {
-        return idPais;
+    public PaisEntity getPaisEntity() {
+        return pais;
     }
 
     public Long getTelefonoCliente() {
@@ -170,11 +173,11 @@ public class ClienteEntity implements Serializable{
     }
 
     public void setIdCiudad(CiudadEntity idCiudad) {
-        this.idCiudad = idCiudad;
+        this.ciudad = idCiudad;
     }
 
-    public void setIdPais(CiudadEntity idPais) {
-        this.idPais = idPais;
+    public void setIdPais(PaisEntity idPais) {
+        this.pais = idPais;
     }
 
     public void setTelefonoCliente(Long telefonoCliente) {

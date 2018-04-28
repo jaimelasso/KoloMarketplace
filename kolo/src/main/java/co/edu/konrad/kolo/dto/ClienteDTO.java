@@ -5,12 +5,14 @@
  */
 package co.edu.konrad.kolo.dto;
 
+import co.edu.konrad.kolo.entities.CiudadEntity;
 import co.edu.konrad.kolo.entities.ClienteEntity;
+import co.edu.konrad.kolo.entities.PaisEntity;
 import co.edu.konrad.kolo.entities.TipoDocumentoEntity;
 import java.util.Date;
 
 /**
- *
+ * DTO para el mapeo objeto relacional de la Entidad Cliente
  * @author Jaime Lasso
  */
 public class ClienteDTO {
@@ -25,8 +27,8 @@ public class ClienteDTO {
     private Long numDocumento;    
     private Date fechaNacimiento;  
     private String direccionCliente;   
-    private CiudadDTO idCiudad;    
-    private PaisDTO idPais;
+    private CiudadDTO ciudad;    
+    private PaisDTO pais;
     private Long telefonoCliente;
     private String emailCliente; 
     private String usuarioCliente;        
@@ -52,54 +54,215 @@ public class ClienteDTO {
          if(clienteEntity.getTipoDocumentoEntity()!= null) {
              TipoDocumentoEntity tde = new TipoDocumentoEntity();
              
-             tde.setIdTipoDocumento(clienteEntity.getTipoDocumentoEntity);
+             tde.setIdTipoDocumento(clienteEntity.getTipoDocumentoEntity().getIdTipoDocumento());
+             tde.setTipoDocumento(clienteEntity.getTipoDocumentoEntity().getTipoDocumento());
+             
+             this.tipoDocumento = new TipoDocumentoDTO(tde);
          }
+         
+         this.numDocumento = clienteEntity.getNumDocumento();
+         this.fechaNacimiento = clienteEntity.getFechaNacimiento();
+         this.direccionCliente = clienteEntity.getDireccionCliente();
+         
+         if(clienteEntity.getCiudadEntity()!= null) {
+             CiudadEntity ce = new CiudadEntity();
+             
+             ce.setIdCiudad(clienteEntity.getCiudadEntity().getIdCiudad());
+             ce.setNombreCiudad(clienteEntity.getCiudadEntity().getNombreCiudad());
+             
+             this.ciudad = new CiudadDTO(ce);
+         }
+         
+         
+         if(clienteEntity.getPaisEntity()!= null) {
+             PaisEntity pe = new PaisEntity();
+             
+             pe.setIdPais(clienteEntity.getPaisEntity().getIdPais());
+             
+             pe.setNombrePais(clienteEntity.getPaisEntity().getNombrePais());
+             
+             this.pais = new PaisDTO(pe);
+         }         
+         
+         this.telefonoCliente = clienteEntity.getTelefonoCliente();
+         this.emailCliente = clienteEntity.getEmailCliente();
+         this.usuarioCliente = clienteEntity.getUsuarioCliente();
+         this.passwordCliente = clienteEntity.getPasswordCliente();
+         this.urlAvatar = clienteEntity.getUrlAvatar();
+         this.fechaCreacion = clienteEntity.getFechaCreacion();
      }
 
     /**
      * Método para mapear a la entidad los datos capturados en la vista
-     * @return objeto de tipo ProveedorEntity
+     * @return objeto de tipo ClienteEntity
      */
-     public TipoDocumentoEntity toEntity() {
-         TipoDocumentoEntity tipoDocumento = new TipoDocumentoEntity();
+     public ClienteEntity toEntity() {
+         ClienteEntity clienteEntity = new ClienteEntity();
          
-         tipoDocumento.setIdTipoDocumento(this.idTipoDocumento);
-         tipoDocumento.setTipoDocumento(this.tipoDocumento);
-         
-         return tipoDocumento;
-     }
+         clienteEntity.setIdCliente(this.idCliente);
+         clienteEntity.setNombreCliente(this.nombreCliente);
+         clienteEntity.setApellidoCliente(this.apellidoCliente);
 
-    /**
-     * Conversión masiva de ProveedorEntity a ProveedorDTO
-     * @param tipoDocumentoList
-     * @return Lista TipoDocumento DTO
-     */
-     public static List<TipoDocumentoDTO> toTipoDocumentoList(List<TipoDocumentoEntity> tipoDocumentoList) {
-        List<TipoDocumentoDTO> listaTipoDocumentoDTO = new ArrayList<>();
-        for (int i = 0; i < tipoDocumentoList.size(); i++) {
-            listaTipoDocumentoDTO.add(new TipoDocumentoDTO(tipoDocumentoList.get(i)));
-        }
-        return listaTipoDocumentoDTO;         
+         if(this.tipoDocumento != null) {
+             TipoDocumentoEntity tipoDocumento = new TipoDocumentoEntity();
+             
+             tipoDocumento.setIdTipoDocumento(this.tipoDocumento.getIdTipoDocumento());
+             tipoDocumento.setTipoDocumento(this.tipoDocumento.getTipoDocumento());
+         }
+         
+         clienteEntity.setNumDocumento(this.numDocumento);
+         clienteEntity.setFechaNacimiento(this.fechaNacimiento);
+         clienteEntity.setDireccionCliente(this.direccionCliente);
+         
+         if(this.ciudad != null) {
+             CiudadEntity ciudad = new CiudadEntity();
+             
+             ciudad.setIdCiudad(this.ciudad.getIdCiudad());
+             ciudad.setNombreCiudad(this.ciudad.getNombreCiudad());
+         }
+
+         if(this.pais != null) {
+             PaisEntity pais = new PaisEntity();
+             
+             pais.setIdPais(this.pais.getIdPais());
+             pais.setNombrePais(this.pais.getNombrePais());
+         }         
+         
+         clienteEntity.setTelefonoCliente(this.telefonoCliente);
+         clienteEntity.setEmailCliente(this.emailCliente);
+         clienteEntity.setUsuarioCliente(this.usuarioCliente);
+         clienteEntity.setPasswordCliente(this.passwordCliente);
+         clienteEntity.setUrlAvatar(this.urlAvatar);
+         clienteEntity.setFechaCreacion(this.fechaCreacion);
+         
+         return clienteEntity;
      }
 
     /**
      * Métodos SET y GET
      */     
-     
-    public Long getIdTipoDocumento() {
-        return idTipoDocumento;
+
+    public Long getIdCliente() {
+        return idCliente;
     }
 
-    public String getTipoDocumento() {
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public String getApellidoCliente() {
+        return apellidoCliente;
+    }
+
+    public TipoDocumentoDTO getTipoDocumento() {
         return tipoDocumento;
     }
 
-    public void setIdTipoDocumento(Long idTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
+    public Long getNumDocumento() {
+        return numDocumento;
     }
 
-    public void setTipoDocumento(String tipoDocumento) {
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public String getDireccionCliente() {
+        return direccionCliente;
+    }
+
+    public CiudadDTO getCiudad() {
+        return ciudad;
+    }
+
+    public PaisDTO getPais() {
+        return pais;
+    }
+
+    public Long getTelefonoCliente() {
+        return telefonoCliente;
+    }
+
+    public String getEmailCliente() {
+        return emailCliente;
+    }
+
+    public String getUsuarioCliente() {
+        return usuarioCliente;
+    }
+
+    public String getPasswordCliente() {
+        return passwordCliente;
+    }
+
+    public String getUrlAvatar() {
+        return urlAvatar;
+    }
+
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public void setApellidoCliente(String apellidoCliente) {
+        this.apellidoCliente = apellidoCliente;
+    }
+
+    public void setTipoDocumento(TipoDocumentoDTO tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
 
+    public void setNumDocumento(Long numDocumento) {
+        this.numDocumento = numDocumento;
+    }
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public void setDireccionCliente(String direccionCliente) {
+        this.direccionCliente = direccionCliente;
+    }
+
+    public void setCiudad(CiudadDTO ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public void setPais(PaisDTO pais) {
+        this.pais = pais;
+    }
+
+    public void setTelefonoCliente(Long telefonoCliente) {
+        this.telefonoCliente = telefonoCliente;
+    }
+
+    public void setEmailCliente(String emailCliente) {
+        this.emailCliente = emailCliente;
+    }
+
+    public void setUsuarioCliente(String usuarioCliente) {
+        this.usuarioCliente = usuarioCliente;
+    }
+
+    public void setPasswordCliente(String passwordCliente) {
+        this.passwordCliente = passwordCliente;
+    }
+
+    public void setUrlAvatar(String urlAvatar) {
+        this.urlAvatar = urlAvatar;
+    }
+
+    public void setFechaCreacion(Date fechaCreacion) {
+        this.fechaCreacion = fechaCreacion;
+    }
+    
+    
+     
+     
 }
