@@ -10,10 +10,14 @@ package co.edu.konrad.kolo.dto;
  * @author Jaime Lasso
  */
 public class CarritoComprasDTO {
+
+    /**
+     * Construimos atributos de la clase con las columnas de la entidad
+     */    
     
     private Long id;
-    private Long idFactura;
-    private Long idProducto;
+    private FacturaDTO factura;
+    //private ProductoDTO producto;
     private Long valorUnitario;
     private Long cantidad;
     private Long total;
