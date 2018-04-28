@@ -9,32 +9,36 @@ import co.edu.konrad.kolo.entities.CiudadEntity;
 import co.edu.konrad.kolo.entities.ClienteEntity;
 import co.edu.konrad.kolo.entities.PaisEntity;
 import co.edu.konrad.kolo.entities.TipoDocumentoEntity;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * DTO para el mapeo objeto relacional de la Entidad Cliente
+ *
  * @author Jaime Lasso
  */
 public class ClienteDTO {
+
     /**
      * Construimos atributos de la clase con las columnas de la entidad
-     */    
-    
+     */
+
     private Long idCliente;
-    private String nombreCliente;    
+    private String nombreCliente;
     private String apellidoCliente;
-    private TipoDocumentoDTO tipoDocumento; 
-    private Long numDocumento;    
-    private Date fechaNacimiento;  
-    private String direccionCliente;   
-    private CiudadDTO ciudad;    
+    private TipoDocumentoDTO tipoDocumento;
+    private Long numDocumento;
+    private Date fechaNacimiento;
+    private String direccionCliente;
+    private CiudadDTO ciudad;
     private PaisDTO pais;
     private Long telefonoCliente;
-    private String emailCliente; 
-    private String usuarioCliente;        
-    private String passwordCliente;    
-    private String urlAvatar;    
-    private Date fechaCreacion; 
+    private String emailCliente;
+    private String usuarioCliente;
+    private String passwordCliente;
+    private String urlAvatar;
+    private Date fechaCreacion;
 
     /**
      * Constructor por defecto
@@ -44,104 +48,119 @@ public class ClienteDTO {
 
     /**
      * Constructor recibiendo como parámetro la entidad
+     *
      * @param clienteEntity
      */
-     public ClienteDTO(ClienteEntity clienteEntity) {
-         this.idCliente = clienteEntity.getIdCliente();
-         this.nombreCliente = clienteEntity.getNombreCliente();
-         this.apellidoCliente = clienteEntity.getApellidoCliente();
-         
-         if(clienteEntity.getTipoDocumentoEntity()!= null) {
-             TipoDocumentoEntity tde = new TipoDocumentoEntity();
-             
-             tde.setIdTipoDocumento(clienteEntity.getTipoDocumentoEntity().getIdTipoDocumento());
-             tde.setTipoDocumento(clienteEntity.getTipoDocumentoEntity().getTipoDocumento());
-             
-             this.tipoDocumento = new TipoDocumentoDTO(tde);
-         }
-         
-         this.numDocumento = clienteEntity.getNumDocumento();
-         this.fechaNacimiento = clienteEntity.getFechaNacimiento();
-         this.direccionCliente = clienteEntity.getDireccionCliente();
-         
-         if(clienteEntity.getCiudadEntity()!= null) {
-             CiudadEntity ce = new CiudadEntity();
-             
-             ce.setIdCiudad(clienteEntity.getCiudadEntity().getIdCiudad());
-             ce.setNombreCiudad(clienteEntity.getCiudadEntity().getNombreCiudad());
-             
-             this.ciudad = new CiudadDTO(ce);
-         }
-         
-         
-         if(clienteEntity.getPaisEntity()!= null) {
-             PaisEntity pe = new PaisEntity();
-             
-             pe.setIdPais(clienteEntity.getPaisEntity().getIdPais());
-             
-             pe.setNombrePais(clienteEntity.getPaisEntity().getNombrePais());
-             
-             this.pais = new PaisDTO(pe);
-         }         
-         
-         this.telefonoCliente = clienteEntity.getTelefonoCliente();
-         this.emailCliente = clienteEntity.getEmailCliente();
-         this.usuarioCliente = clienteEntity.getUsuarioCliente();
-         this.passwordCliente = clienteEntity.getPasswordCliente();
-         this.urlAvatar = clienteEntity.getUrlAvatar();
-         this.fechaCreacion = clienteEntity.getFechaCreacion();
-     }
+    public ClienteDTO(ClienteEntity clienteEntity) {
+        this.idCliente = clienteEntity.getIdCliente();
+        this.nombreCliente = clienteEntity.getNombreCliente();
+        this.apellidoCliente = clienteEntity.getApellidoCliente();
+
+        if (clienteEntity.getTipoDocumentoEntity() != null) {
+            TipoDocumentoEntity tde = new TipoDocumentoEntity();
+
+            tde.setIdTipoDocumento(clienteEntity.getTipoDocumentoEntity().getIdTipoDocumento());
+            tde.setTipoDocumento(clienteEntity.getTipoDocumentoEntity().getTipoDocumento());
+
+            this.tipoDocumento = new TipoDocumentoDTO(tde);
+        }
+
+        this.numDocumento = clienteEntity.getNumDocumento();
+        this.fechaNacimiento = clienteEntity.getFechaNacimiento();
+        this.direccionCliente = clienteEntity.getDireccionCliente();
+
+        if (clienteEntity.getCiudadEntity() != null) {
+            CiudadEntity ce = new CiudadEntity();
+
+            ce.setIdCiudad(clienteEntity.getCiudadEntity().getIdCiudad());
+            ce.setNombreCiudad(clienteEntity.getCiudadEntity().getNombreCiudad());
+
+            this.ciudad = new CiudadDTO(ce);
+        }
+
+        if (clienteEntity.getPaisEntity() != null) {
+            PaisEntity pe = new PaisEntity();
+
+            pe.setIdPais(clienteEntity.getPaisEntity().getIdPais());
+
+            pe.setNombrePais(clienteEntity.getPaisEntity().getNombrePais());
+
+            this.pais = new PaisDTO(pe);
+        }
+
+        this.telefonoCliente = clienteEntity.getTelefonoCliente();
+        this.emailCliente = clienteEntity.getEmailCliente();
+        this.usuarioCliente = clienteEntity.getUsuarioCliente();
+        this.passwordCliente = clienteEntity.getPasswordCliente();
+        this.urlAvatar = clienteEntity.getUrlAvatar();
+        this.fechaCreacion = clienteEntity.getFechaCreacion();
+    }
 
     /**
      * Método para mapear a la entidad los datos capturados en la vista
+     *
      * @return objeto de tipo ClienteEntity
      */
-     public ClienteEntity toEntity() {
-         ClienteEntity clienteEntity = new ClienteEntity();
-         
-         clienteEntity.setIdCliente(this.idCliente);
-         clienteEntity.setNombreCliente(this.nombreCliente);
-         clienteEntity.setApellidoCliente(this.apellidoCliente);
+    public ClienteEntity toEntity() {
+        ClienteEntity clienteEntity = new ClienteEntity();
 
-         if(this.tipoDocumento != null) {
-             TipoDocumentoEntity tipoDocumento = new TipoDocumentoEntity();
-             
-             tipoDocumento.setIdTipoDocumento(this.tipoDocumento.getIdTipoDocumento());
-             tipoDocumento.setTipoDocumento(this.tipoDocumento.getTipoDocumento());
-         }
-         
-         clienteEntity.setNumDocumento(this.numDocumento);
-         clienteEntity.setFechaNacimiento(this.fechaNacimiento);
-         clienteEntity.setDireccionCliente(this.direccionCliente);
-         
-         if(this.ciudad != null) {
-             CiudadEntity ciudad = new CiudadEntity();
-             
-             ciudad.setIdCiudad(this.ciudad.getIdCiudad());
-             ciudad.setNombreCiudad(this.ciudad.getNombreCiudad());
-         }
+        clienteEntity.setIdCliente(this.idCliente);
+        clienteEntity.setNombreCliente(this.nombreCliente);
+        clienteEntity.setApellidoCliente(this.apellidoCliente);
 
-         if(this.pais != null) {
-             PaisEntity pais = new PaisEntity();
-             
-             pais.setIdPais(this.pais.getIdPais());
-             pais.setNombrePais(this.pais.getNombrePais());
-         }         
-         
-         clienteEntity.setTelefonoCliente(this.telefonoCliente);
-         clienteEntity.setEmailCliente(this.emailCliente);
-         clienteEntity.setUsuarioCliente(this.usuarioCliente);
-         clienteEntity.setPasswordCliente(this.passwordCliente);
-         clienteEntity.setUrlAvatar(this.urlAvatar);
-         clienteEntity.setFechaCreacion(this.fechaCreacion);
-         
-         return clienteEntity;
-     }
+        if (this.tipoDocumento != null) {
+            TipoDocumentoEntity tipoDocumento = new TipoDocumentoEntity();
+
+            tipoDocumento.setIdTipoDocumento(this.tipoDocumento.getIdTipoDocumento());
+            tipoDocumento.setTipoDocumento(this.tipoDocumento.getTipoDocumento());
+        }
+
+        clienteEntity.setNumDocumento(this.numDocumento);
+        clienteEntity.setFechaNacimiento(this.fechaNacimiento);
+        clienteEntity.setDireccionCliente(this.direccionCliente);
+
+        if (this.ciudad != null) {
+            CiudadEntity ciudad = new CiudadEntity();
+
+            ciudad.setIdCiudad(this.ciudad.getIdCiudad());
+            ciudad.setNombreCiudad(this.ciudad.getNombreCiudad());
+        }
+
+        if (this.pais != null) {
+            PaisEntity pais = new PaisEntity();
+
+            pais.setIdPais(this.pais.getIdPais());
+            pais.setNombrePais(this.pais.getNombrePais());
+        }
+
+        clienteEntity.setTelefonoCliente(this.telefonoCliente);
+        clienteEntity.setEmailCliente(this.emailCliente);
+        clienteEntity.setUsuarioCliente(this.usuarioCliente);
+        clienteEntity.setPasswordCliente(this.passwordCliente);
+        clienteEntity.setUrlAvatar(this.urlAvatar);
+        clienteEntity.setFechaCreacion(this.fechaCreacion);
+
+        return clienteEntity;
+    }
+
+    /**
+     * Conversión masiva de EstudianteEntity a EstudianteDTO
+     *
+     * @param clienteList
+     * @return Lista Estudiante DTO
+     */
+    public static List<ClienteDTO> toClienteList(List<ClienteEntity> clienteList) {
+        List<ClienteDTO> listaEstudianteDTO = new ArrayList<>();
+        for (ClienteEntity clienteList1 : clienteList) {
+            listaEstudianteDTO.add(new ClienteDTO(clienteList1));
+        }
+        return listaEstudianteDTO;
+    }
 
     /**
      * Métodos SET y GET
-     */     
-
+     * @return 
+     */
     public Long getIdCliente() {
         return idCliente;
     }
@@ -261,8 +280,5 @@ public class ClienteDTO {
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
-    
-    
-     
-     
+
 }

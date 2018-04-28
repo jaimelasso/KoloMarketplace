@@ -1,15 +1,15 @@
 package co.edu.konrad.kolo.resources;
 
 import java.util.Set;
-import javax.ws.rs.Path;
-import javafx.application.Application;
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
 /**
  *
  * @author Martin Cortes
  */
 
-@Path("/api")
+@ApplicationPath("/api")
 public class ApplicationConfig  extends Application {
     
     @Override
@@ -20,17 +20,17 @@ public class ApplicationConfig  extends Application {
     }
     
     private void addRestResourceClasses(Set<Class<?>> resources){
-        resources.add(co.edu.konrad.kolo.resources.CarritoComprasResource);
-        resources.add(co.edu.konrad.kolo.resources.CategoriaResource);
-        resources.add(co.edu.konrad.kolo.resources.CiudadResource);
-        resources.add(co.edu.konrad.kolo.resources.ClienteResource);
-        resources.add(co.edu.konrad.kolo.resources.FacturaResource);
-        resources.add(co.edu.konrad.kolo.resources.InfoCreditoResource);
-        resources.add(co.edu.konrad.kolo.resources.InfoDebitoResource);
-        resources.add(co.edu.konrad.kolo.resources.PaisResource);
-        resources.add(co.edu.konrad.kolo.resources.ProductosResource);
-        resources.add(co.edu.konrad.kolo.resources.ProveedorResource);
-        resources.add(co.edu.konrad.kolo.resources.TipoDocumentoResource);
-        resources.add(co.edu.konrad.kolo.resources.TipoPagoResource);
+        resources.add(co.edu.konrad.kolo.resources.CarritoComprasResource.class);
+        resources.add(co.edu.konrad.kolo.resources.CategoriaResource.class);
+        resources.add(co.edu.konrad.kolo.resources.CiudadResource.class);
+        resources.add(co.edu.konrad.kolo.resources.ClienteResource.class);
+        resources.add(co.edu.konrad.kolo.resources.FacturaResource.class);
+        resources.add(co.edu.konrad.kolo.resources.InfoCreditoResource.class);
+        resources.add(co.edu.konrad.kolo.resources.InfoDebitoResource.class);
+        resources.add(co.edu.konrad.kolo.resources.PaisResource.class);
+        resources.add(co.edu.konrad.kolo.resources.ProductosResource.class);
+        resources.add(co.edu.konrad.kolo.resources.ProveedorResource.class);
+        resources.add(co.edu.konrad.kolo.resources.TipoDocumentoResource.class);
+        resources.add(co.edu.konrad.kolo.resources.TipoPagoResource.class);
     }
 }
