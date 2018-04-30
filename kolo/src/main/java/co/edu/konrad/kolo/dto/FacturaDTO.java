@@ -7,6 +7,7 @@ package co.edu.konrad.kolo.dto;
 
 import co.edu.konrad.kolo.entities.CiudadEntity;
 import co.edu.konrad.kolo.entities.ClienteEntity;
+import co.edu.konrad.kolo.entities.FacturaEntity;
 import co.edu.konrad.kolo.entities.InfoCreditoEntity;
 import co.edu.konrad.kolo.entities.InfoDebitoEntity;
 import co.edu.konrad.kolo.entities.PaisEntity;
@@ -35,6 +36,29 @@ public class FacturaDTO {
      * Constructor por defecto
      */    
     public FacturaDTO() {
+    }
+
+    /**
+     * Constructor recibiendo como parámetro la entidad
+     *
+     * @param facturaEntity
+     */
+    
+    public FacturaDTO(FacturaEntity facturaEntity) {
+        this.idFactura = facturaEntity.getIdFactura();
+        if (facturaEntity.getClienteEntity() != null) {
+            ClienteEntity ce = new ClienteEntity();
+            
+            ce.setIdCliente(facturaEntity.getClienteEntity().getIdCliente());
+            ce.setNombreCliente(facturaEntity.getClienteEntity().getNombreCliente());
+            ce.setApellidoCliente(facturaEntity.getClienteEntity().getApellidoCliente());
+            ce.setTipoDocumento(facturaEntity.getClienteEntity().getTipoDocumentoEntity());
+            ce.setNumDocumento(facturaEntity.getClienteEntity().getNumDocumento());
+            ce.setFechaNacimiento(facturaEntity.getClienteEntity().getFechaNacimiento());
+            ce.setDireccionCliente(facturaEntity.getClienteEntity().getDireccionCliente());
+            ce.setIdCiudad(facturaEntity.getClienteEntity().getCiudadEntity());
+            ce.setIdPais(facturaEntity.get);
+        }
     }
     
 }

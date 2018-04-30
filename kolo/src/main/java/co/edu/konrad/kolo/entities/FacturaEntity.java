@@ -72,5 +72,99 @@ public class FacturaEntity implements Serializable {
     @Column 
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaCompra;    
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public Long getIdFactura() {
+        return idFactura;
+    }
+
+    public ClienteEntity getClienteEntity() {
+        return clienteEntity;
+    }
+
+    public Long getTotal() {
+        return total;
+    }
+
+    public TipoPagoEntity getTipoPagoEntity() {
+        return tipoPagoEntity;
+    }
+
+    public InfoDebitoEntity getInfoDebitoEntity() {
+        return infoDebitoEntity;
+    }
+
+    public InfoCreditoEntity getInfoCreditoEntity() {
+        return infoCreditoEntity;
+    }
+
+    public boolean isActivoEnvioAlternativo() {
+        return activoEnvioAlternativo;
+    }
+
+    public String getDireccionAlternativa() {
+        return direccionAlternativa;
+    }
+
+    public CiudadEntity getCiudadEntity() {
+        return ciudadEntity;
+    }
+
+    public PaisEntity getPaisEntity() {
+        return paisEntity;
+    }
+
+    public Date getFechaCompra() {
+        return fechaCompra;
+    }
+
+    public void setIdFactura(Long idFactura) {
+        this.idFactura = idFactura;
+    }
+
+    public void setClienteEntity(ClienteEntity clienteEntity) {
+        this.clienteEntity = clienteEntity;
+    }
+
+    public void setTotal(Long total) {
+        this.total = total;
+    }
+
+    public void setTipoPagoEntity(TipoPagoEntity tipoPagoEntity) {
+        this.tipoPagoEntity = tipoPagoEntity;
+    }
+
+    public void setInfoDebitoEntity(InfoDebitoEntity infoDebitoEntity) {
+        this.infoDebitoEntity = infoDebitoEntity;
+    }
+
+    public void setInfoCreditoEntity(InfoCreditoEntity infoCreditoEntity) {
+        this.infoCreditoEntity = infoCreditoEntity;
+    }
+
+    public void setActivoEnvioAlternativo(boolean activoEnvioAlternativo) {
+        this.activoEnvioAlternativo = activoEnvioAlternativo;
+    }
+
+    public void setDireccionAlternativa(String direccionAlternativa) {
+        this.direccionAlternativa = direccionAlternativa;
+    }
+
+    public void setCiudadEntity(CiudadEntity ciudadEntity) {
+        this.ciudadEntity = ciudadEntity;
+    }
+
+    public void setPaisEntity(PaisEntity paisEntity) {
+        this.paisEntity = paisEntity;
+    }
+
+    public void setFechaCompra(Date fechaCompra) {
+        this.fechaCompra = fechaCompra;
+    }
+    
+    
     
 }
