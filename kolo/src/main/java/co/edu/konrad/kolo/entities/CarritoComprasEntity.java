@@ -36,11 +36,11 @@ public class CarritoComprasEntity implements Serializable {
     
     @OneToMany
     @JoinColumn (name = "idFactura")
-    private FacturaEntity idFactura;    
+    private FacturaEntity facturaEntity;    
     
     @ManyToOne
     @JoinColumn (name = "idProducto")
-    private ProductosEntity idProducto;      
+    private ProductosEntity productoEntity;      
 
     /**
      * Variable que almacena el valor unitario por producto en el carrito
@@ -65,7 +65,7 @@ public class CarritoComprasEntity implements Serializable {
      * Métodos GET Y SET
      * @return 
      */
-    
+
     public Long getIdCarrito() {
         return idCarrito;
     }
@@ -74,20 +74,20 @@ public class CarritoComprasEntity implements Serializable {
         this.idCarrito = idCarrito;
     }
 
-    public FacturaEntity getIdFactura() {
-        return idFactura;
+    public FacturaEntity getFacturaEntity() {
+        return facturaEntity;
     }
 
-    public void setIdFactura(FacturaEntity idFactura) {
-        this.idFactura = idFactura;
+    public void setFacturaEntity(FacturaEntity facturaEntity) {
+        this.facturaEntity = facturaEntity;
     }
 
-    public ProductosEntity getIdProducto() {
-        return idProducto;
+    public ProductosEntity getProductoEntity() {
+        return productoEntity;
     }
 
-    public void setIdProducto(ProductosEntity idProducto) {
-        this.idProducto = idProducto;
+    public void setProductoEntity(ProductosEntity productoEntity) {
+        this.productoEntity = productoEntity;
     }
 
     public Long getValorUnitario() {
@@ -113,7 +113,5 @@ public class CarritoComprasEntity implements Serializable {
     public void setTotal(Long total) {
         this.total = total;
     }
-        
-    
     
 }

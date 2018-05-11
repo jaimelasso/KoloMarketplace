@@ -20,7 +20,6 @@ public class ApplicationConfig  extends Application {
     }
     
     private void addRestResourceClasses(Set<Class<?>> resources){
-        resources.add(co.edu.konrad.kolo.resources.CarritoComprasResource.class);
         resources.add(co.edu.konrad.kolo.resources.ClienteResource.class);
     }
 }
