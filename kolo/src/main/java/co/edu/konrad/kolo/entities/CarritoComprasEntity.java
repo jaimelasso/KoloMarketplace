@@ -36,11 +36,11 @@ public class CarritoComprasEntity implements Serializable {
     
     @OneToMany
     @JoinColumn (name = "idFactura")
-    private FacturaEntity factura;    
+    private FacturaEntity idFactura;    
     
     @ManyToOne
     @JoinColumn (name = "idProducto")
-    private ProductosEntity productos;      
+    private ProductosEntity idProducto;      
 
     /**
      * Variable que almacena el valor unitario por producto en el carrito
@@ -70,51 +70,50 @@ public class CarritoComprasEntity implements Serializable {
         return idCarrito;
     }
 
-    public FacturaEntity getFactura() {
-        return factura;
+    public void setIdCarrito(Long idCarrito) {
+        this.idCarrito = idCarrito;
     }
 
-    public ProductosEntity getProductos() {
-        return productos;
+    public FacturaEntity getIdFactura() {
+        return idFactura;
+    }
+
+    public void setIdFactura(FacturaEntity idFactura) {
+        this.idFactura = idFactura;
+    }
+
+    public ProductosEntity getIdProducto() {
+        return idProducto;
+    }
+
+    public void setIdProducto(ProductosEntity idProducto) {
+        this.idProducto = idProducto;
     }
 
     public Long getValorUnitario() {
         return valorUnitario;
     }
 
-    public Long getCantidad() {
-        return cantidad;
-    }
-
-    public Long getTotal() {
-        return total;
-    }
-
-    public void setIdCarrito(Long idCarrito) {
-        this.idCarrito = idCarrito;
-    }
-
-    public void setFactura(FacturaEntity factura) {
-        this.factura = factura;
-    }
-
-    public void setProductos(ProductosEntity productos) {
-        this.productos = productos;
-    }
-
     public void setValorUnitario(Long valorUnitario) {
         this.valorUnitario = valorUnitario;
+    }
+
+    public Long getCantidad() {
+        return cantidad;
     }
 
     public void setCantidad(Long cantidad) {
         this.cantidad = cantidad;
     }
 
+    public Long getTotal() {
+        return total;
+    }
+
     public void setTotal(Long total) {
         this.total = total;
     }
-
-    
+        
     
     
 }

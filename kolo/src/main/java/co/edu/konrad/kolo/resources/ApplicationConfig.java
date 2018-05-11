@@ -21,16 +21,6 @@ public class ApplicationConfig  extends Application {
     
     private void addRestResourceClasses(Set<Class<?>> resources){
         resources.add(co.edu.konrad.kolo.resources.CarritoComprasResource.class);
-        resources.add(co.edu.konrad.kolo.resources.CategoriaResource.class);
-        resources.add(co.edu.konrad.kolo.resources.CiudadResource.class);
         resources.add(co.edu.konrad.kolo.resources.ClienteResource.class);
-        resources.add(co.edu.konrad.kolo.resources.FacturaResource.class);
-        resources.add(co.edu.konrad.kolo.resources.InfoCreditoResource.class);
-        resources.add(co.edu.konrad.kolo.resources.InfoDebitoResource.class);
-        resources.add(co.edu.konrad.kolo.resources.PaisResource.class);
-        resources.add(co.edu.konrad.kolo.resources.ProductosResource.class);
-        resources.add(co.edu.konrad.kolo.resources.ProveedorResource.class);
-        resources.add(co.edu.konrad.kolo.resources.TipoDocumentoResource.class);
-        resources.add(co.edu.konrad.kolo.resources.TipoPagoResource.class);
     }
 }
