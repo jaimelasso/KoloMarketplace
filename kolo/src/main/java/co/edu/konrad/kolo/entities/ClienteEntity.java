@@ -88,122 +88,122 @@ public class ClienteEntity implements Serializable{
         return idCliente;
     }
 
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public String getApellidoCliente() {
-        return apellidoCliente;
-    }
-
-    public TipoDocumentoEntity getTipoDocumentoEntity() {
-        return tipoDocumento;
-    }
-
-    public Long getNumDocumento() {
-        return numDocumento;
-    }
-
-    public Date getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public String getDireccionCliente() {
-        return direccionCliente;
-    }
-
-    public CiudadEntity getCiudadEntity() {
-        return ciudad;
-    }
-
-    public PaisEntity getPaisEntity() {
-        return pais;
-    }
-
-    public Long getTelefonoCliente() {
-        return telefonoCliente;
-    }
-
-    public String getEmailCliente() {
-        return emailCliente;
-    }
-
-    public String getUsuarioCliente() {
-        return usuarioCliente;
-    }
-
-    public String getPasswordCliente() {
-        return passwordCliente;
-    }
-
-    public String getUrlAvatar() {
-        return urlAvatar;
-    }
-
-    public Date getFechaCreacion() {
-        return fechaCreacion;
-    }
-
     public void setIdCliente(Long idCliente) {
         this.idCliente = idCliente;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
     }
 
     public void setNombreCliente(String nombreCliente) {
         this.nombreCliente = nombreCliente;
     }
 
+    public String getApellidoCliente() {
+        return apellidoCliente;
+    }
+
     public void setApellidoCliente(String apellidoCliente) {
         this.apellidoCliente = apellidoCliente;
+    }
+
+    public TipoDocumentoEntity getTipoDocumento() {
+        return tipoDocumento;
     }
 
     public void setTipoDocumento(TipoDocumentoEntity tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
 
+    public Long getNumDocumento() {
+        return numDocumento;
+    }
+
     public void setNumDocumento(Long numDocumento) {
         this.numDocumento = numDocumento;
+    }
+
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    public String getDireccionCliente() {
+        return direccionCliente;
+    }
+
     public void setDireccionCliente(String direccionCliente) {
         this.direccionCliente = direccionCliente;
     }
 
-    public void setIdCiudad(CiudadEntity idCiudad) {
-        this.ciudad = idCiudad;
+    public CiudadEntity getCiudad() {
+        return ciudad;
     }
 
-    public void setIdPais(PaisEntity idPais) {
-        this.pais = idPais;
+    public void setCiudad(CiudadEntity ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public PaisEntity getPais() {
+        return pais;
+    }
+
+    public void setPais(PaisEntity pais) {
+        this.pais = pais;
+    }
+
+    public Long getTelefonoCliente() {
+        return telefonoCliente;
     }
 
     public void setTelefonoCliente(Long telefonoCliente) {
         this.telefonoCliente = telefonoCliente;
     }
 
+    public String getEmailCliente() {
+        return emailCliente;
+    }
+
     public void setEmailCliente(String emailCliente) {
         this.emailCliente = emailCliente;
+    }
+
+    public String getUsuarioCliente() {
+        return usuarioCliente;
     }
 
     public void setUsuarioCliente(String usuarioCliente) {
         this.usuarioCliente = usuarioCliente;
     }
 
+    public String getPasswordCliente() {
+        return passwordCliente;
+    }
+
     public void setPasswordCliente(String passwordCliente) {
         this.passwordCliente = passwordCliente;
+    }
+
+    public String getUrlAvatar() {
+        return urlAvatar;
     }
 
     public void setUrlAvatar(String urlAvatar) {
         this.urlAvatar = urlAvatar;
     }
 
+    public Date getFechaCreacion() {
+        return fechaCreacion;
+    }
+
     public void setFechaCreacion(Date fechaCreacion) {
         this.fechaCreacion = fechaCreacion;
     }
-            
-    
+        
+        
     
 }

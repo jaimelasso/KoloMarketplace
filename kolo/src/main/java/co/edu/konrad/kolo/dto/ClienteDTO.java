@@ -56,11 +56,11 @@ public class ClienteDTO {
         this.nombreCliente = clienteEntity.getNombreCliente();
         this.apellidoCliente = clienteEntity.getApellidoCliente();
 
-        if (clienteEntity.getTipoDocumentoEntity() != null) {
+        if (clienteEntity.getTipoDocumento() != null) {
             TipoDocumentoEntity tde = new TipoDocumentoEntity();
 
-            tde.setIdTipoDocumento(clienteEntity.getTipoDocumentoEntity().getIdTipoDocumento());
-            tde.setTipoDocumento(clienteEntity.getTipoDocumentoEntity().getTipoDocumento());
+            tde.setIdTipoDocumento(clienteEntity.getTipoDocumento().getIdTipoDocumento());
+            tde.setTipoDocumento(clienteEntity.getTipoDocumento().getTipoDocumento());
 
             this.tipoDocumento = new TipoDocumentoDTO(tde);
         }
@@ -69,21 +69,21 @@ public class ClienteDTO {
         this.fechaNacimiento = clienteEntity.getFechaNacimiento();
         this.direccionCliente = clienteEntity.getDireccionCliente();
 
-        if (clienteEntity.getCiudadEntity() != null) {
+        if (clienteEntity.getCiudad() != null) {
             CiudadEntity ce = new CiudadEntity();
 
-            ce.setIdCiudad(clienteEntity.getCiudadEntity().getIdCiudad());
-            ce.setNombreCiudad(clienteEntity.getCiudadEntity().getNombreCiudad());
+            ce.setIdCiudad(clienteEntity.getCiudad().getIdCiudad());
+            ce.setNombreCiudad(clienteEntity.getCiudad().getNombreCiudad());
 
             this.ciudad = new CiudadDTO(ce);
         }
 
-        if (clienteEntity.getPaisEntity() != null) {
+        if (clienteEntity.getPais() != null) {
             PaisEntity pe = new PaisEntity();
 
-            pe.setIdPais(clienteEntity.getPaisEntity().getIdPais());
+            pe.setIdPais(clienteEntity.getPais().getIdPais());
 
-            pe.setNombrePais(clienteEntity.getPaisEntity().getNombrePais());
+            pe.setNombrePais(clienteEntity.getPais().getNombrePais());
 
             this.pais = new PaisDTO(pe);
         }

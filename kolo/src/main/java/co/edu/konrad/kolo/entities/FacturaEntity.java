@@ -38,22 +38,22 @@ public class FacturaEntity implements Serializable {
     
     @ManyToOne
     @JoinColumn(name="cliente")
-    private ClienteEntity clienteEntity;    
+    private ClienteEntity cliente;    
  
     @Column 
     private Long total;
     
     @ManyToOne
     @JoinColumn(name="id_tipoPago")
-    private TipoPagoEntity tipoPagoEntity;        
+    private TipoPagoEntity tipoPago;        
 
     @ManyToOne
     @JoinColumn(name="num_cuenta")
-    private InfoDebitoEntity infoDebitoEntity;        
+    private InfoDebitoEntity infoDebito;        
     
     @ManyToOne
     @JoinColumn(name="num_tarjeta")
-    private InfoCreditoEntity infoCreditoEntity;            
+    private InfoCreditoEntity infoCredito;            
 
     @Column 
     private boolean activoEnvioAlternativo;    
@@ -63,11 +63,11 @@ public class FacturaEntity implements Serializable {
 
     @ManyToOne
     @JoinColumn(name="id_ciudadAlternativa")
-    private CiudadEntity ciudadEntity;            
+    private CiudadEntity ciudad;            
 
     @ManyToOne
     @JoinColumn(name="id_paisAlternativo")
-    private PaisEntity paisEntity;            
+    private PaisEntity pais;            
 
     @Column 
     @Temporal(javax.persistence.TemporalType.DATE)
@@ -81,12 +81,12 @@ public class FacturaEntity implements Serializable {
         this.idFactura = idFactura;
     }
 
-    public ClienteEntity getClienteEntity() {
-        return clienteEntity;
+    public ClienteEntity getCliente() {
+        return cliente;
     }
 
-    public void setClienteEntity(ClienteEntity clienteEntity) {
-        this.clienteEntity = clienteEntity;
+    public void setCliente(ClienteEntity cliente) {
+        this.cliente = cliente;
     }
 
     public Long getTotal() {
@@ -97,28 +97,28 @@ public class FacturaEntity implements Serializable {
         this.total = total;
     }
 
-    public TipoPagoEntity getTipoPagoEntity() {
-        return tipoPagoEntity;
+    public TipoPagoEntity getTipoPago() {
+        return tipoPago;
     }
 
-    public void setTipoPagoEntity(TipoPagoEntity tipoPagoEntity) {
-        this.tipoPagoEntity = tipoPagoEntity;
+    public void setTipoPago(TipoPagoEntity tipoPago) {
+        this.tipoPago = tipoPago;
     }
 
-    public InfoDebitoEntity getInfoDebitoEntity() {
-        return infoDebitoEntity;
+    public InfoDebitoEntity getInfoDebito() {
+        return infoDebito;
     }
 
-    public void setInfoDebitoEntity(InfoDebitoEntity infoDebitoEntity) {
-        this.infoDebitoEntity = infoDebitoEntity;
+    public void setInfoDebito(InfoDebitoEntity infoDebito) {
+        this.infoDebito = infoDebito;
     }
 
-    public InfoCreditoEntity getInfoCreditoEntity() {
-        return infoCreditoEntity;
+    public InfoCreditoEntity getInfoCredito() {
+        return infoCredito;
     }
 
-    public void setInfoCreditoEntity(InfoCreditoEntity infoCreditoEntity) {
-        this.infoCreditoEntity = infoCreditoEntity;
+    public void setInfoCredito(InfoCreditoEntity infoCredito) {
+        this.infoCredito = infoCredito;
     }
 
     public boolean isActivoEnvioAlternativo() {
@@ -137,20 +137,20 @@ public class FacturaEntity implements Serializable {
         this.direccionAlternativa = direccionAlternativa;
     }
 
-    public CiudadEntity getCiudadEntity() {
-        return ciudadEntity;
+    public CiudadEntity getCiudad() {
+        return ciudad;
     }
 
-    public void setCiudadEntity(CiudadEntity ciudadEntity) {
-        this.ciudadEntity = ciudadEntity;
+    public void setCiudad(CiudadEntity ciudad) {
+        this.ciudad = ciudad;
     }
 
-    public PaisEntity getPaisEntity() {
-        return paisEntity;
+    public PaisEntity getPais() {
+        return pais;
     }
 
-    public void setPaisEntity(PaisEntity paisEntity) {
-        this.paisEntity = paisEntity;
+    public void setPais(PaisEntity pais) {
+        this.pais = pais;
     }
 
     public Date getFechaCompra() {
@@ -160,7 +160,7 @@ public class FacturaEntity implements Serializable {
     public void setFechaCompra(Date fechaCompra) {
         this.fechaCompra = fechaCompra;
     }
-            
+
     
     
 }

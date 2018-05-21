@@ -69,4 +69,38 @@ public class InfoCreditoDTO {
         }
         return listaInfoCreditoDTO;
     }    
+
+    public Long getNumTarjeta() {
+        return numTarjeta;
+    }
+
+    public void setNumTarjeta(Long numTarjeta) {
+        this.numTarjeta = numTarjeta;
+    }
+
+    public String getNombreFranquicia() {
+        return nombreFranquicia;
+    }
+
+    public void setNombreFranquicia(String nombreFranquicia) {
+        this.nombreFranquicia = nombreFranquicia;
+    }
+
+    public Date getFechaVencimiento() {
+        return fechaVencimiento;
+    }
+
+    public void setFechaVencimiento(Date fechaVencimiento) {
+        this.fechaVencimiento = fechaVencimiento;
+    }
+
+    public Long getCodigoClave() {
+        return codigoClave;
+    }
+
+    public void setCodigoClave(Long codigoClave) {
+        this.codigoClave = codigoClave;
+    }
+    
+    
 }

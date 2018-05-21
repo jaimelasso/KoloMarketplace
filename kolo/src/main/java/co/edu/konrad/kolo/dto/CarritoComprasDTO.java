@@ -44,15 +44,15 @@ public class CarritoComprasDTO {
              FacturaEntity factura = new FacturaEntity();
              
              factura.setIdFactura(cc.getFacturaEntity().getIdFactura());
-             factura.setClienteEntity(cc.getFacturaEntity().getClienteEntity());
+             factura.setCliente(cc.getFacturaEntity().getCliente());
              factura.setTotal(cc.getFacturaEntity().getTotal());
-             factura.setTipoPagoEntity(cc.getFacturaEntity().getTipoPagoEntity());
-             factura.setInfoDebitoEntity(cc.getFacturaEntity().getInfoDebitoEntity());
-             factura.setInfoCreditoEntity(cc.getFacturaEntity().getInfoCreditoEntity());
+             factura.setTipoPago(cc.getFacturaEntity().getTipoPago());
+             factura.setInfoDebito(cc.getFacturaEntity().getInfoDebito());
+             factura.setInfoCredito(cc.getFacturaEntity().getInfoCredito());
              factura.setActivoEnvioAlternativo(cc.getFacturaEntity().isActivoEnvioAlternativo());
              factura.setDireccionAlternativa(cc.getFacturaEntity().getDireccionAlternativa());
-             factura.setCiudadEntity(cc.getFacturaEntity().getCiudadEntity());
-             factura.setPaisEntity(cc.getFacturaEntity().getPaisEntity());
+             factura.setCiudad(cc.getFacturaEntity().getCiudad());
+             factura.setPais(cc.getFacturaEntity().getPais());
              factura.setFechaCompra(cc.getFacturaEntity().getFechaCompra());
              
              this.factura = new FacturaDTO(factura);
@@ -68,7 +68,7 @@ public class CarritoComprasDTO {
              producto.setGarantiaProducto(cc.getProductoEntity().getGarantiaProducto());
              producto.setStockDisponible(cc.getProductoEntity().getStockDisponible());
              producto.setProveedor(cc.getProductoEntity().getProveedor());
-             producto.setCategoriaEntity(cc.getProductoEntity().getCategoriaEntity());
+             producto.setCategoria(cc.getProductoEntity().getCategoria());
              
              this.producto = new ProductoDTO(producto);
          }
@@ -80,20 +80,46 @@ public class CarritoComprasDTO {
     
     /**
      * Metodo que realiza el mapeo objeto relacional
-     * @return entidad CarritoCompras
-     */     
+     * Método para mapear a la entidad los datos capturados en la vista
+     * @return objeto de tipo CarritoComprasEntity
+     */
     public CarritoComprasEntity toEntity() {
         CarritoComprasEntity cce = new CarritoComprasEntity();
         
         cce.setIdCarrito(this.idCarrito);
-        
-        if(this.factura != null) {
-            FacturaEntity factura = new FacturaEntity();
+        if (this.factura != null) {
+            FacturaEntity fe = new FacturaEntity();
             
-            factura.setIdFactura(this.factura.get);
+            fe.setIdFactura(this.factura.getIdFactura());
+            fe.setCliente(this.factura.getCliente().toEntity());
+            fe.setTotal(this.factura.getTotal());
+            fe.setTipoPago(this.factura.getTipoPago().toEntity());
+            fe.setInfoDebito(this.factura.getInfoDebito().toEntity());
+            fe.setInfoCredito(this.factura.getInfoCredito().toEntity());
+            fe.setActivoEnvioAlternativo(this.factura.isActivoEnvioAlternativo());
+            fe.setDireccionAlternativa(this.factura.getDireccionAlternativa());
+            fe.setCiudad(this.factura.getCiudad().toEntity());
+            fe.setPais(this.factura.getPais().toEntity());
+            fe.setFechaCompra(this.factura.getFechaCompra());
             
-            cce.setFacturaEntity(factura);
+            cce.setFacturaEntity(fe);
         }
+        if (this.producto != null) {
+            ProductosEntity pe = new ProductosEntity();
+            
+            pe.setIdProducto(this.producto.getIdProducto());
+            pe.setNombreProducto(this.producto.getNombreProducto());
+            pe.setValorUnitario(this.producto.getValorUnitario());
+            pe.setMarcaProducto(this.producto.getMarcaProducto());
+            pe.setGarantiaProducto(this.producto.getGarantiaProducto());
+            pe.setStockDisponible(this.producto.getStockDisponible());
+            pe.setProveedor(this.producto.getProveedor().toEntity());
+            pe.setCategoria(this.producto.getCategoria().toEntity());
+            
+            cce.setProductoEntity(pe);
+        }
+        
+        return cce;
     }
 
     public Long getIdCarrito() {

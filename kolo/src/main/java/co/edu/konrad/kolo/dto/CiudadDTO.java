@@ -81,11 +81,5 @@ public class CiudadDTO {
     public void setNombreCiudad(String nombreCiudad) {
         this.nombreCiudad = nombreCiudad;
     }
-    
-    
-     
-     
-     
-     
-    
+       
 }

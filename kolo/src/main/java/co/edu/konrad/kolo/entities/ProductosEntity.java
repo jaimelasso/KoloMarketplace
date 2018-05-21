@@ -75,77 +75,78 @@ public class ProductosEntity implements Serializable {
      */
     @ManyToOne
     @JoinColumn (name = "idCategoria")
-    private ProveedorEntity CategoriaEntity;
+    private CategoriaEntity Categoria;
 
-   
     /**
      * Métodos GET Y SET
      * @return 
      */
-    
+        
     public Long getIdProducto() {
         return idProducto;
-    }
-
-    public String getNombreProducto() {
-        return nombreProducto;
-    }
-
-    public Long getValorUnitario() {
-        return valorUnitario;
-    }
-
-    public String getMarcaProducto() {
-        return marcaProducto;
-    }
-
-    public String getGarantiaProducto() {
-        return garantiaProducto;
-    }
-
-    public Long getStockDisponible() {
-        return stockDisponible;
-    }
-
-    public ProveedorEntity getProveedor() {
-        return proveedor;
-    }
-
-    public ProveedorEntity getCategoriaEntity() {
-        return CategoriaEntity;
     }
 
     public void setIdProducto(Long idProducto) {
         this.idProducto = idProducto;
     }
 
+    public String getNombreProducto() {
+        return nombreProducto;
+    }
+
     public void setNombreProducto(String nombreProducto) {
         this.nombreProducto = nombreProducto;
+    }
+
+    public Long getValorUnitario() {
+        return valorUnitario;
     }
 
     public void setValorUnitario(Long valorUnitario) {
         this.valorUnitario = valorUnitario;
     }
 
+    public String getMarcaProducto() {
+        return marcaProducto;
+    }
+
     public void setMarcaProducto(String marcaProducto) {
         this.marcaProducto = marcaProducto;
+    }
+
+    public String getGarantiaProducto() {
+        return garantiaProducto;
     }
 
     public void setGarantiaProducto(String garantiaProducto) {
         this.garantiaProducto = garantiaProducto;
     }
 
+    public Long getStockDisponible() {
+        return stockDisponible;
+    }
+
     public void setStockDisponible(Long stockDisponible) {
         this.stockDisponible = stockDisponible;
+    }
+
+    public ProveedorEntity getProveedor() {
+        return proveedor;
     }
 
     public void setProveedor(ProveedorEntity proveedor) {
         this.proveedor = proveedor;
     }
 
-    public void setCategoriaEntity(ProveedorEntity CategoriaEntity) {
-        this.CategoriaEntity = CategoriaEntity;
+    public CategoriaEntity getCategoria() {
+        return Categoria;
     }
+
+    public void setCategoria(CategoriaEntity Categoria) {
+        this.Categoria = Categoria;
+    }
+
+   
 
     
     
