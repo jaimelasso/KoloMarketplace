@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Check-Out</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
+        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+        <style>
+            h1 {
+                border-bottom: 1.5px solid #eee;
+                padding-top: 1em;
+                font-weight: bolder;
+            }
+            h3{
+                border-bottom: 1.5px solid #eee;
+                font-weight: bolder;
+
+            }
+            ul {
+                list-style-type: none  
+            }
+            label{
+                padding-top: 0.5em;
+                margin-bottom: 0
+            }
+            .valor{
+                background-color: mediumseagreen
+            }
+            .cantidad{
+                background-color: steelblue
+            }
+            .remover{
+                background-color: red
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <h1>Carrito de compras</h1>
+                    <div class="row well well-sm">
+                        <div class="col-xs-8">
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span class="badge remover">x</span>
+                                    <span class="badge valor">$200.000</span>
+                                    <span class="badge cantidad">14</span>
+                                    Producto 1
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge remover">x</span>
+                                    <span class="badge valor">$12.000</span>
+                                    <span class="badge cantidad">3</span>
+                                    <span class="badge glyphicon glyphicon-remove-circle"></span>
+                                    Producto 2
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge remover">x</span>
+                                    <span class="badge valor">$10.000</span>
+                                    <span class="badge cantidad">21</span>
+                                    <span class="badge glyphicon glyphicon-remove-circle"></span>
+                                    Producto 3
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge remover">x</span>
+                                    <span class="badge valor">$45.000</span>
+                                    <span class="badge cantidad">8</span>
+                                    <span class="badge glyphicon glyphicon-remove-circle"></span>
+                                    Producto 4
+                                </li>
+                                <li class="list-group-item">
+                                    <span class="badge remover">x</span>
+                                    <span class="badge valor">$45.000</span>
+                                    <span class="badge cantidad">8</span>
+                                    <span class="badge glyphicon glyphicon-remove-circle"></span>
+                                    Producto 5
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-4">
+                            <h3>Resumen</h3>
+                            <ul class="list-group">
+                                <li class="list-group-item list-group-item-info">
+                                    <span class="badge valor">$200.000</span>
+                                    <strong>Total productos</strong>
+                                </li>
+                                <li class="list-group-item list-group-item-warning">
+                                    <span class="badge valor">$12.000</span>
+                                    <span class="badge glyphicon glyphicon-remove-circle"></span>
+                                    <strong>Impuestos</strong>
+                                </li>
+                                <li class="list-group-item list-group-item-warning">
+                                    <span class="badge valor">$12.000</span>
+                                    <span class="badge glyphicon glyphicon-remove-circle"></span>
+                                    <strong>Envío</strong>
+                                </li>
+                                <li class="list-group-item list-group-item-success">
+                                    <span class="badge valor">$12.000</span>
+                                    <span class="badge glyphicon glyphicon-remove-circle"></span>
+                                    <strong>Total</strong>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="text-center">
+                                <button class="btn btn-lg btn-success"><span class="glyphicon glyphicon-credit-card"></span> Pagar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
