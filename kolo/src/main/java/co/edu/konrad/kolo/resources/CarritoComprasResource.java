@@ -26,19 +26,52 @@ import javax.ws.rs.core.MediaType;
  *
  * @author marti
  */
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
+@Path("/CarritoCompras")
 public class CarritoComprasResource {
-    
+
     @EJB
     private CarritoComprasLogic carritoComprasLogic;
-    
+
     @GET
+    public List<CarritoComprasDTO> getCarritoComprasList() {
+        List<CarritoComprasEntity> carritosCompra = carritoComprasLogic.obtenerCarritoComprass();
+        return CarritoComprasDTO.toCarritoComprasList(carritosCompra);
+    }
+
     @Path("{id: \\d+}")
-    public CarritoComprasDTO getCarritoCompras(@PathParam("id") Long id){
-        CarritoComprasEntity carrito = carritoComprasLogic.obtenerCarritoCompras(id);
-        if(carrito == null){
+    public CarritoComprasDTO getCarritoCompras(@PathParam("id") Long id) {
+        CarritoComprasEntity carritoCompras = carritoComprasLogic.obtenerCarritoCompras(id);
+        if (carritoCompras == null) {
             throw new RuntimeException("El cliente solicitado no existe");
         }
-        return new CarritoComprasDTO(carrito);
+        return new CarritoComprasDTO(carritoCompras);
     }
-    
+
+    @POST
+    public CarritoComprasDTO createCarritoCompras(CarritoComprasDTO carritoComprasDTO) {
+        return new CarritoComprasDTO(carritoComprasLogic.crearCarritoCompras(carritoComprasDTO.toEntity()));
+    }
+
+    @PUT
+    @Path("{id: \\d+}")
+    public CarritoComprasDTO updateCarritoCompras(@PathParam("id") Long id, CarritoComprasDTO carritoComprasDTO) {
+        CarritoComprasEntity entity = carritoComprasLogic.obtenerCarritoCompras(id);
+        if (entity == null) {
+            throw new RuntimeException("El carrito de compras solicitado no existe");
+        }
+        return new CarritoComprasDTO(carritoComprasLogic.actualizarCarritoCompras(id, entity));
+    }
+
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteCarritoCompras(@PathParam("id") Long id) {
+        CarritoComprasEntity entity = carritoComprasLogic.obtenerCarritoCompras(id);
+        if (entity == null) {
+            throw new RuntimeException("El carrito de compras solicitado no existe");
+        }
+        carritoComprasLogic.eliminarCarritoCompras(id);
+    }
+
 }
