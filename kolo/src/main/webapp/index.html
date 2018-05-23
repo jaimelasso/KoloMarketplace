@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>KoLo - Login</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <script src="js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <script src="js/vendor/bootstrap.min.js" type="text/javascript"></script>
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        <script src="js/index.js" type="text/javascript"></script>
-    </head>
-    <body>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-xs-6 col-xs-offset-3" style="padding-top: 10em">
+
+<head>
+    <title>KoLo - Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <script src="js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/index.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4" style="padding-top: 10em">
+                <form action="" name="login">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Iniciar sesión</h3>
+                        <div class="panel-heading text-center">
+                            <h1 class="panel-title">Iniciar sesión</h1>
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
                                 <label>Usuario</label>
-                                <input type="text" class="form-control" placeholder="Usuario">
+                                <input type="text" class="form-control input-lg" placeholder="Usuario" name="usuario_cliente" required>
                             </div>
                             <div class="form-group">
                                 <label>Contraseña</label>
-                                <input type="password" class="form-control" placeholder="Contraseña">
+                                <input type="password" class="form-control input-lg" placeholder="Contraseña" name="password_cliente" required>
                             </div>
                             <div class="form-group text-center">
-                                <button type="button" id="registro" class="btn btn-default">Registrarse</button>
-                                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                                <button type="button" id="registro" class="btn btn-lg btn-default">Registrarse</button>
+                                <button type="submit" class="btn btn-lg btn-primary">Iniciar Sesión</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
-    </body>
+    </div>
+</body>
+
 </html>

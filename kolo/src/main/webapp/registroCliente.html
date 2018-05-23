@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Registrarse</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-        <script src="js/vendor/bootstrap.min.js" type="text/javascript"></script>
-        <script src="js/registroCliente.js" type="text/javascript"></script>
-        <style>
-            h2 {
-                border-bottom: 1.5px solid #eee;
-            }
-            img {
-                padding-left: 3em;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container-fluid">
+
+<head>
+    <title>Registrarse</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/vendor/jquery-3.3.1.min.js" type="text/javascript"></script>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <script src="js/vendor/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/registroCliente.js" type="text/javascript"></script>
+    <style>
+        h2 {
+            border-bottom: 1.5px solid #eee;
+        }
+
+        img {
+            padding-left: 3em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form method="POST" name="registroCliente">
             <div class="text-center">
                 <h1>
                     <strong>Registrase</strong>
@@ -27,94 +31,102 @@
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <h2><strong>Datos generales</strong></h2>
+                    <h2>
+                        <strong>Datos generales</strong>
+                    </h2>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Tipo de documento</label>
-                            <select class="form-control">
-                                <option>Seleccione...</option>
+                            <select class="form-control" required name="idTipoDocumento">
+                                <option value="">Seleccione...</option>
                             </select>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Número de documento</label>
-                            <input type="number" class="form-control" placeholder="Número de documento">
+                            <input type="number" class="form-control" placeholder="Número de documento" name="num_documento" required>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Nombres</label>
-                            <input type="text" class="form-control" placeholder="Nombres">
+                            <input type="text" class="form-control" placeholder="Nombres" name="nombre_cliente" required>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Apellidos</label>
-                            <input type="text" class="form-control" placeholder="Apellidos">
+                            <input type="text" class="form-control" placeholder="Apellidos" name="apellido_cliente" required>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Fecha de nacimiento</label>
-                            <input type="datetime-local" class="form-control">
+                            <input type="datetime-local" class="form-control" name="fecha_nacimiento" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-6">
-                    <h2><strong>Datos de residencia</strong></h2>
+                    <h2>
+                        <strong>Datos de residencia</strong>
+                    </h2>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label>Dirección de residencia</label>
-                            <input type="text" class="form-control" placeholder="Dirección de residencia">
+                            <input type="text" class="form-control" placeholder="Dirección de residencia" name="direccion_cliente" required>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Ciudad</label>
-                            <input type="text" class="form-control" placeholder="Ciudad">
+                            <input type="text" class="form-control" placeholder="Ciudad" name="id_ciudad" required>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>País</label>
-                            <input type="text" class="form-control" placeholder="País">
+                            <input type="text" class="form-control" placeholder="País" name="id_pais" required>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6">
-                    <h2><strong>Datos de contacto</strong></h2>
+                    <h2>
+                        <strong>Datos de contacto</strong>
+                    </h2>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Teléfono</label>
-                            <input type="tel" class="form-control" placeholder="Teléfono">
+                            <input type="tel" class="form-control" placeholder="Teléfono" name="telefono_cliente" required>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Celular</label>
-                            <input type="tel" class="form-control" placeholder="Celular">
+                            <input type="tel" class="form-control" placeholder="Celular" name="celular_cliente" required>
                         </div>
                     </div>
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label>Correo</label>
-                            <input type="email" class="form-control" placeholder="ejemplo@ejemplo.com">
+                            <input type="email" class="form-control" placeholder="ejemplo@ejemplo.com" name="email_cliente" required>
                         </div>
                     </div>
                 </div>
                 <div class="col-xs-6">
-                    <h2><strong>Datos de usuario</strong></h2>
+                    <h2>
+                        <strong>Datos de usuario</strong>
+                    </h2>
                     <div class="col-xs-8">
                         <div class="form-group">
                             <label>Usuario</label>
-                            <input type="text" class="form-control" placeholder="Usuario">
+                            <input type="text" class="form-control" placeholder="Usuario" name="usuario_cliente" required>
                         </div>
                         <div class="form-group">
                             <label>Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Contraseña">
+                            <input type="password" class="form-control" placeholder="Contraseña" name="password_cliente" required>
                         </div>
                     </div>
                     <div class="col-xs-4">
@@ -126,7 +138,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xs-12">
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn btn-lg btn-primary">
+                            <span class="glyphicon glyphicon-floppy-disk"></span> Crear
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </body>
+        </form>
+    </div>
+</body>
+
 </html>
