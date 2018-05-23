@@ -1,6 +1,6 @@
 package co.edu.konrad.kolo.resources;
 
-import co.edu.konrad.kolo.dto.ProductosDTO;
+import co.edu.konrad.kolo.dto.ProductoDTO;
 import co.edu.konrad.kolo.entities.ProductosEntity;
 import co.edu.konrad.kolo.logic.ProductosLogic;
 
@@ -31,33 +31,33 @@ public class ProductosResource {
     private ProductosLogic productosLogic;
 
     @GET
-    public List<ProductosDTO> getProductosList() {
+    public List<ProductoDTO> getProductosList() {
         List<ProductosEntity> productos = productosLogic.obtenerProductoss();
-        return ProductosDTO.toProductosList(productos);
+        return ProductoDTO.toProductosList(productos);
     }
 
     @Path("{id: \\d+}")
-    public ProductosDTO getCliente(@PathParam("id") Long id) {
+    public ProductoDTO getProducto(@PathParam("id") Long id) {
         ProductosEntity productos = productosLogic.obtenerProductos(id);
         if (productos == null) {
             throw new RuntimeException("El producto solicitado no existe");
         }
-        return new ProductosDTO(productos);
+        return new ProductoDTO(productos);
     }
 
     @POST
-    public ProductosDTO createCliente(ProductosDTO productosDTO) {
-        return new ProductosDTO(productosLogic.crearCliente(productosDTO.toEntity()));
+    public ProductoDTO createProducto(ProductoDTO productosDTO) {
+        return new ProductoDTO(productosLogic.crearProductos(productosDTO.toEntity()));
     }
 
     @PUT
     @Path("{id: \\d+}")
-    public ProductosDTO updateProducto(@PathParam("id") Long id, ProductosDTO clienteDTO) {
+    public ProductoDTO updateProducto(@PathParam("id") Long id, ProductoDTO clienteDTO) {
         ProductosEntity entity = productosLogic.obtenerProductos(id);
         if (entity == null) {
             throw new RuntimeException("El producto solicitado no existe");
         }
-        return new ProductosDTO(productosLogic.actualizarProductos(id, entity));
+        return new ProductoDTO(productosLogic.actualizarProductos(id, entity));
     }
 
     @DELETE
