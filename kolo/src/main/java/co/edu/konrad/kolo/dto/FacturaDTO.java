@@ -12,7 +12,9 @@ import co.edu.konrad.kolo.entities.InfoCreditoEntity;
 import co.edu.konrad.kolo.entities.InfoDebitoEntity;
 import co.edu.konrad.kolo.entities.PaisEntity;
 import co.edu.konrad.kolo.entities.TipoPagoEntity;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * DTO para el mapeo objeto relacional de la Entidad Factura
@@ -177,6 +179,18 @@ public class FacturaDTO {
         
         return facturaEntity;
     }
+     /**
+     * Conversión masiva de FacturaEntity a FacturaDTO
+     * @param facturaList
+     * @return Lista FacturaDTO
+     */     
+    public static List<FacturaDTO> toFacturaList(List<FacturaEntity> facturaList) {
+        List<FacturaDTO> listaFacturaDTO = new ArrayList<>();
+        for (int i = 0; i < facturaList.size(); i++) {
+            listaFacturaDTO.add(new FacturaDTO(facturaList.get(i)));
+        }
+        return listaFacturaDTO;
+    }  
 
     public Long getIdFactura() {
         return idFactura;

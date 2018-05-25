@@ -5,6 +5,10 @@
  */
 package co.edu.konrad.kolo.resources;
 
+import co.edu.konrad.kolo.dto.InfoCreditoDTO;
+import co.edu.konrad.kolo.entities.InfoCreditoEntity;
+import co.edu.konrad.kolo.logic.InfoCreditoLogic;
+
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.Path;

@@ -8,6 +8,8 @@ package co.edu.konrad.kolo.dto;
 import co.edu.konrad.kolo.entities.CarritoComprasEntity;
 import co.edu.konrad.kolo.entities.FacturaEntity;
 import co.edu.konrad.kolo.entities.ProductosEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DTO para el mapeo objeto relacional de la Entidad CarritoCompras
@@ -121,7 +123,18 @@ public class CarritoComprasDTO {
         
         return cce;
     }
-
+     /**
+     * Conversión masiva de CarritoComprasEntity a CarritoComprasDTO
+     * @param CarritoComprasList
+     * @return Lista CarritoComprasDTO
+     */  
+    public static List<CarritoComprasDTO> toCarritoComprasList(List<CarritoComprasEntity> carritoComprasList) {
+        List<CarritoComprasDTO> listaCarritoComprasDTO = new ArrayList<>();
+        for (int i = 0; i < carritoComprasList.size(); i++) {
+            listaCarritoComprasDTO.add(new CarritoComprasDTO(carritoComprasList.get(i)));
+        }
+        return listaCarritoComprasDTO;
+    }  
     public Long getIdCarrito() {
         return idCarrito;
     }
