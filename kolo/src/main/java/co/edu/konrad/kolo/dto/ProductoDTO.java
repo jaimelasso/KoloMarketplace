@@ -8,12 +8,14 @@ package co.edu.konrad.kolo.dto;
 import co.edu.konrad.kolo.entities.CategoriaEntity;
 import co.edu.konrad.kolo.entities.ProductosEntity;
 import co.edu.konrad.kolo.entities.ProveedorEntity;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DTO para el mapeo objeto relacional de la Entidad Producto
  * @author Jaime Lasso
  */
-class ProductoDTO {
+public class ProductoDTO {
     
     private Long idProducto;
     private String nombreProducto;
@@ -108,6 +110,18 @@ class ProductoDTO {
         return productosEntity;
     }
 
+    /**
+     * Conversión masiva de ProductoEntity a ProductoDTO
+     * @param ProductoList
+     * @return Lista ProductoDTO
+     */    
+    public static List<ProductoDTO> toProductosList(List<ProductosEntity> productosList) {
+        List<ProductoDTO> listaProductoDTO = new ArrayList<>();
+        for (int i = 0; i < productosList.size(); i++) {
+            listaProductoDTO.add(new ProductoDTO(productosList.get(i)));
+        }
+        return listaProductoDTO;
+    }    
     public Long getIdProducto() {
         return idProducto;
     }
