@@ -13,7 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 
 /**
@@ -38,7 +38,7 @@ public class ClienteEntity implements Serializable{
     @Column (name = "apellido_cliente")
     private String apellidoCliente;
     
-    @OneToMany
+    @ManyToOne
     @JoinColumn (name = "idTipoDocumento")
     private TipoDocumentoEntity tipoDocumento;    
     
@@ -52,11 +52,11 @@ public class ClienteEntity implements Serializable{
     @Column (name = "direccion_cliente")
     private String direccionCliente;        
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn (name = "id_ciudad")
     private CiudadEntity ciudad;    
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn (name = "id_pais")
     private PaisEntity pais;
 

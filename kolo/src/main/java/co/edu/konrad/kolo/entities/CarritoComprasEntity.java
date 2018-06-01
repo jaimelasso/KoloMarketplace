@@ -13,7 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 /**
  * Clase para modelar la Entidad Proveedor
@@ -34,7 +34,7 @@ public class CarritoComprasEntity implements Serializable {
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idCarrito;    
     
-    @OneToMany
+    @ManyToOne
     @JoinColumn (name = "idFactura")
     private FacturaEntity facturaEntity;    
     
