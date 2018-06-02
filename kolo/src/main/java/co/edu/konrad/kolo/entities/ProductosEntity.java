@@ -74,8 +74,8 @@ public class ProductosEntity implements Serializable {
      * Variable que almacena y relaciona el ID de la categoría
      */
     @ManyToOne
-    @JoinColumn (name = "idCategoria")
-    private CategoriaEntity Categoria;
+    @JoinColumn (name = "categoria")
+    private CategoriaEntity categoriaEntity;
 
     /**
      * Métodos GET Y SET
@@ -139,11 +139,11 @@ public class ProductosEntity implements Serializable {
     }
 
     public CategoriaEntity getCategoria() {
-        return Categoria;
+        return categoriaEntity;
     }
 
-    public void setCategoria(CategoriaEntity Categoria) {
-        this.Categoria = Categoria;
+    public void setCategoria(CategoriaEntity categoriaEntity) {
+        this.categoriaEntity = categoriaEntity;
     }
 
    

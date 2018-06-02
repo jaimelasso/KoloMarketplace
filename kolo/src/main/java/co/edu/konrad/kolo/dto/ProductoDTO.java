@@ -13,10 +13,11 @@ import java.util.List;
 
 /**
  * DTO para el mapeo objeto relacional de la Entidad Producto
+ *
  * @author Jaime Lasso
  */
 public class ProductoDTO {
-    
+
     private Long idProducto;
     private String nombreProducto;
     private Long valorUnitario;
@@ -28,16 +29,16 @@ public class ProductoDTO {
 
     /**
      * Constructor por defecto
-     */    
-    
+     */
     public ProductoDTO() {
     }
 
     /**
-     * Constructor recibiendo como parámetro la entidad
-     * Permite realizar el mapeo entidad a objeto
+     * Constructor recibiendo como parámetro la entidad Permite realizar el
+     * mapeo entidad a objeto
+     *
      * @param productoEntity
-     */    
+     */
     public ProductoDTO(ProductosEntity productoEntity) {
         this.idProducto = productoEntity.getIdProducto();
         this.nombreProducto = productoEntity.getNombreProducto();
@@ -66,15 +67,16 @@ public class ProductoDTO {
             ce.setNombreCategoria(productoEntity.getCategoria().getNombreCategoria());
         }
     }
-    
+
     /**
-     * Metodo que realiza el mapeo objeto relacional
-     * Método para mapear a la entidad los datos capturados en la vista
+     * Metodo que realiza el mapeo objeto relacional Método para mapear a la
+     * entidad los datos capturados en la vista
+     *
      * @return objeto de tipo ProductoEntity
-     */    
+     */
     public ProductosEntity toEntity() {
         ProductosEntity productosEntity = new ProductosEntity();
-        
+
         productosEntity.setIdProducto(this.idProducto);
         productosEntity.setNombreProducto(this.nombreProducto);
         productosEntity.setValorUnitario(this.valorUnitario);
@@ -83,7 +85,7 @@ public class ProductoDTO {
         productosEntity.setStockDisponible(this.stockDisponible);
         if (this.proveedor != null) {
             ProveedorEntity pe = new ProveedorEntity();
-            
+
             pe.setIdProveedor(this.proveedor.getId());
             pe.setNitProveedor(this.proveedor.getNit());
             pe.setNombreProveedor(this.proveedor.getNombre());
@@ -97,31 +99,33 @@ public class ProductoDTO {
             pe.setUrlAvatarProveedor(this.proveedor.getUrlAvatar());
             pe.setDireccionProveedor(this.proveedor.getDireccion());
             pe.setFechaCreacion(this.proveedor.getFechaCreacion());
-            
+
             productosEntity.setProveedor(pe);
         }
         if (this.categoria != null) {
             CategoriaEntity ce = new CategoriaEntity();
-            
+
             ce.setIdCategoria(this.categoria.getIdCategoria());
             ce.setNombreCategoria(this.categoria.getNombreCategoria());
         }
-        
+
         return productosEntity;
     }
 
     /**
      * Conversión masiva de ProductoEntity a ProductoDTO
+     *
      * @param ProductoList
      * @return Lista ProductoDTO
-     */    
+     */
     public static List<ProductoDTO> toProductosList(List<ProductosEntity> productosList) {
         List<ProductoDTO> listaProductoDTO = new ArrayList<>();
         for (int i = 0; i < productosList.size(); i++) {
             listaProductoDTO.add(new ProductoDTO(productosList.get(i)));
         }
         return listaProductoDTO;
-    }    
+    }
+
     public Long getIdProducto() {
         return idProducto;
     }
@@ -185,5 +189,5 @@ public class ProductoDTO {
     public void setCategoria(CategoriaDTO categoria) {
         this.categoria = categoria;
     }
-    
+
 }

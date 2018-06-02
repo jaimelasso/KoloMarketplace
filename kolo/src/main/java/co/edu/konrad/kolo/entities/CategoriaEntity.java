@@ -7,14 +7,18 @@ package co.edu.konrad.kolo.entities;
 
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+//import javax.persistence.NamedQuery;
 
 /**
  * Clase para modelar la Entidad Proveedor
  * @author Jaime Lasso & Martín Cortés
  */
+@Entity (name = "Categoria")
+//@NamedQuery (name="Categoria.findByName", query="select e from Categoria e where e.nombreEstudiante = :nombre")
 public class CategoriaEntity implements Serializable {
     /**
      * Atributo estático para el manejo de versiones de la entidad

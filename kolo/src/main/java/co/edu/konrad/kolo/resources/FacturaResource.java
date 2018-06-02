@@ -24,14 +24,48 @@ import javax.ws.rs.core.MediaType;
 
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/Cliente")
+@Path("/Factura")
 public class FacturaResource {
     @EJB
     private FacturaLogic facturaLogic;
-    
+
     @GET
-    public List<FacturaDTO> getFacturaList(){
-        List<FacturaEntity> facturas = facturaLogic.obtenerFacturas();
-        return FacturaDTO.toFacturaList(facturas);
+    public List<FacturaDTO> getFacturaList() {
+        List<FacturaEntity> factura = facturaLogic.obtenerFacturas();
+        return FacturaDTO.toFacturaList(factura);
+    }
+
+    @Path("{id: \\d+}")
+    public FacturaDTO getFactura(@PathParam("id") Long id) {
+        FacturaEntity factura = facturaLogic.obtenerFactura(id);
+        if (factura == null) {
+            throw new RuntimeException("La categoria no existe");
+        }
+        return new FacturaDTO(factura);
+    }
+
+    @POST
+    public FacturaDTO createFactura(FacturaDTO facturaDTO) {
+        return new FacturaDTO(facturaLogic.crearFactura(facturaDTO.toEntity()));
+    }
+
+    @PUT
+    @Path("{id: \\d+}")
+    public FacturaDTO updateFactura(@PathParam("id") Long id, FacturaDTO facturaDTO) {
+        FacturaEntity entity = facturaLogic.obtenerFactura(id);
+        if (entity == null) {
+            throw new RuntimeException("la categoria no existe");
+        }
+        return new FacturaDTO(facturaLogic.actualizarFactura(id, entity));
+    }
+
+    @DELETE
+    @Path("{id: \\d+}")
+    public void deleteFactura(@PathParam("id") Long id) {
+        FacturaEntity entity = facturaLogic.obtenerFactura(id);
+        if (entity == null) {
+            throw new RuntimeException("la categoria no existe");
+        }
+        facturaLogic.eliminarFactura(id);
     }
 }
