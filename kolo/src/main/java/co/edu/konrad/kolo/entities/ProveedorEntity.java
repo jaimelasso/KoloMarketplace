@@ -29,14 +29,14 @@ public class ProveedorEntity implements Serializable {
      * Llave primaria de la Entidad Proveedor
      */
     @Id
-    @Column (name = "id_proveedor", unique = true)
+    @Column (name = "id_proveedor")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idProveedor;
     
     /**
      * Variable que almacena el nit del proveedor
      */
-    @Column (name = "nit_proveedor", nullable = false)
+    @Column (name = "nit_proveedor")
     private Long nitProveedor;
     
     /**
@@ -66,7 +66,7 @@ public class ProveedorEntity implements Serializable {
     /**
      * Variable que almacena las ventas anuales del proveedor
      */
-    @Column (name = "ventas_anuales", nullable = false)
+    @Column (name = "ventas_anuales")
     private Long ventasAnuales;
 
     /**

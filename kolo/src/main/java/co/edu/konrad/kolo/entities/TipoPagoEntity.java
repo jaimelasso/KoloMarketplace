@@ -27,7 +27,7 @@ public class TipoPagoEntity implements Serializable{
      * Llave primaria de la Entidad TipoPago
      */
     @Id
-    @Column (name = "id_tipoPago", unique = true)
+    @Column (name = "id_tipoPago")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idTipoPago;
     

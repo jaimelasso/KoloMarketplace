@@ -27,7 +27,7 @@ public class TipoDocumentoEntity implements Serializable{
      * Llave primaria de la Entidad TipoDocumento
      */
     @Id
-    @Column (name = "id_tipoDocumento", unique = true)
+    @Column (name = "id_tipoDocumento")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idTipoDocumento;    
     

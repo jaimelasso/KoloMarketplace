@@ -28,7 +28,7 @@ public class ClienteEntity implements Serializable{
     private static final long serialVersionUID=1L;
     
     @Id
-    @Column (name = "id_cliente", unique = true)
+    @Column (name = "id_cliente")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idCliente;
     

@@ -40,6 +40,7 @@ public class CarritoComprasResource {
         return CarritoComprasDTO.toCarritoComprasList(carritosCompra);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public CarritoComprasDTO getCarritoCompras(@PathParam("id") Long id) {
         CarritoComprasEntity carritoCompras = carritoComprasLogic.obtenerCarritoCompras(id);

@@ -36,6 +36,7 @@ public class TipoPagoResource {
         return TipoPagoDTO.toTipoPagoList(tiposPago);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public TipoPagoDTO getTipoPago(@PathParam("id") Long id) {
         TipoPagoEntity tipoPago = tipoPagoLogic.obtenerTipoPago(id);

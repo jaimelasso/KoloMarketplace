@@ -34,6 +34,7 @@ public class CategoriaResource {
         return CategoriaDTO.toCategoriaList(categoria);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public CategoriaDTO getCategoria(@PathParam("id") Long id) {
         CategoriaEntity categoria = categoriaLogic.obtenerCategoria(id);

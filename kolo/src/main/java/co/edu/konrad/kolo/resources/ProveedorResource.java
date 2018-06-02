@@ -36,6 +36,7 @@ public class ProveedorResource {
         return ProveedorDTO.toProveedorList(proveedores);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public ProveedorDTO getProveedor(@PathParam("id") Long id) {
         ProveedorEntity proveedor = proveedorLogic.obtenerProveedor(id);
@@ -61,7 +62,7 @@ public class ProveedorResource {
     }
 
     @DELETE
-    @Path("{estudianteId: \\d+}")
+    @Path("{id: \\d+}")
     public void deleteProveedor(@PathParam("id") Long id) {
         ProveedorEntity entity = proveedorLogic.obtenerProveedor(id);
         if (entity == null) {

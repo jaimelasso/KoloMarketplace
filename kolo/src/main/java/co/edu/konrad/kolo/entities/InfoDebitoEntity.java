@@ -27,7 +27,7 @@ public class InfoDebitoEntity implements Serializable{
      * Llave primaria de la Entidad InfoDebito
      */
     @Id
-    @Column (name = "num_cuenta", unique = true)
+    @Column (name = "num_cuenta")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long numCuenta;
     

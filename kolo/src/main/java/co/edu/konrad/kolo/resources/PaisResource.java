@@ -36,6 +36,7 @@ public class PaisResource {
         return PaisDTO.toPaisList(paises);
     }
     
+    @GET
     @Path("{id: \\d+}")
     public PaisDTO getPais(@PathParam("id") Long id) {
         PaisEntity pais = paisLogic.obtenerPais(id);

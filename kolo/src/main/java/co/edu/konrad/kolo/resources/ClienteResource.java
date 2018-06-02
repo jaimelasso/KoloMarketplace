@@ -36,6 +36,7 @@ public class ClienteResource {
         return ClienteDTO.toClienteList(clientes);
     }
     
+    @GET
     @Path("{id: \\d+}")
     public ClienteDTO getCliente(@PathParam("id") Long id) {
         ClienteEntity cliente = clienteLogic.obtenerCliente(id);
@@ -61,7 +62,7 @@ public class ClienteResource {
     }
     
     @DELETE
-    @Path("{estudianteId: \\d+}")
+    @Path("{clienteId: \\d+}")
     public void deleteCliente(@PathParam("clienteId") Long id) {
         ClienteEntity entity = clienteLogic.obtenerCliente(id);
         if (entity == null) {

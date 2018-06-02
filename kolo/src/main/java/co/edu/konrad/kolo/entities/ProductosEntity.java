@@ -29,7 +29,7 @@ public class ProductosEntity implements Serializable {
      * Llave primaria de la Entidad Productos
      */
     @Id
-    @Column (name = "id_producto", unique = true)
+    @Column (name = "id_producto")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idProducto;
     

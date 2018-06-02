@@ -35,6 +35,7 @@ public class CiudadResource {
         return CiudadDTO.toCiudadList(ciudades);
     }
     
+    @GET
     @Path("{id: \\d+}")
     public CiudadDTO getCiudad(@PathParam("id") Long id){
         CiudadEntity ciudad = ciudadLogic.obtenerCiudad(id);

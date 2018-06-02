@@ -45,19 +45,19 @@ public class CarritoComprasEntity implements Serializable {
     /**
      * Variable que almacena el valor unitario por producto en el carrito
      */
-    @Column (name = "valor_unitario", nullable = false)
+    @Column (name = "valor_unitario")
     private Long valorUnitario;
     
     /**
      * Variable que almacena la cantidad de productos comprados en el carrito
      */
-    @Column (name = "cantidad", nullable = false)
+    @Column (name = "cantidad")
     private Long cantidad;
 
     /**
      * Variable que almacena el total de la compra en el carrito
      */
-    @Column (name = "total", nullable = false)
+    @Column (name = "total")
     private Long total;
 
    

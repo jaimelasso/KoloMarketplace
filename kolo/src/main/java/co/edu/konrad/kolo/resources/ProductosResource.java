@@ -36,6 +36,7 @@ public class ProductosResource {
         return ProductoDTO.toProductosList(productos);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public ProductoDTO getProducto(@PathParam("id") Long id) {
         ProductosEntity productos = productosLogic.obtenerProductos(id);

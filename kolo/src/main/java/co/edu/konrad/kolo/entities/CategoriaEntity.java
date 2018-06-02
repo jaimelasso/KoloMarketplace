@@ -29,7 +29,7 @@ public class CategoriaEntity implements Serializable {
      * Llave primaria de la Entidad Categoria
      */
     @Id
-    @Column (name = "id_categoria", unique = true)
+    @Column (name = "id_categoria")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idCategoria;
     

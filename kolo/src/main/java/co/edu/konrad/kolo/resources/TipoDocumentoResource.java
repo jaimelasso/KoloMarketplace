@@ -36,6 +36,7 @@ public class TipoDocumentoResource {
         return TipoDocumentoDTO.toTipoDocumentoList(tipodocumentos);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public TipoDocumentoDTO getTipoDocumento(@PathParam("id") Long id) {
         TipoDocumentoEntity tipodocumento = tipoDocumentoLogic.obtenerTipoDocumento(id);

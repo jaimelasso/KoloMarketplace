@@ -35,6 +35,7 @@ public class FacturaResource {
         return FacturaDTO.toFacturaList(factura);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public FacturaDTO getFactura(@PathParam("id") Long id) {
         FacturaEntity factura = facturaLogic.obtenerFactura(id);

@@ -29,7 +29,7 @@ public class InfoCreditoEntity implements Serializable{
      * Llave primaria de la Entidad InfoCredito
      */
     @Id
-    @Column (name = "num_tarjeta", unique = true)
+    @Column (name = "num_tarjeta")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long numTarjeta;
     

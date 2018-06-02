@@ -39,6 +39,7 @@ public class InfoCreditoResource {
         return InfoCreditoDTO.toInfoCreditoList(carritosCompra);
     }
 
+    @GET
     @Path("{id: \\d+}")
     public InfoCreditoDTO getInfoCredito(@PathParam("id") Long id) {
         InfoCreditoEntity infoCredito = infoCreditoLogic.obtenerInfoCredito(id);

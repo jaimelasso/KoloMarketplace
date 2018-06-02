@@ -27,7 +27,7 @@ public class CiudadEntity implements Serializable{
      * Llave primaria de la Entidad Ciudad
      */
     @Id
-    @Column (name = "id_ciudad", unique = true)
+    @Column (name = "id_ciudad")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idCiudad;
     

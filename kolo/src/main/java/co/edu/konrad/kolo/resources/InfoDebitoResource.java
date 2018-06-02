@@ -1,8 +1,8 @@
 package co.edu.konrad.kolo.resources;
 
-import co.edu.konrad.kolo.dto.InfoCreditoDTO;
-import co.edu.konrad.kolo.entities.InfoCreditoEntity;
-import co.edu.konrad.kolo.logic.InfoCreditoLogic;
+import co.edu.konrad.kolo.dto.InfoDebitoDTO;
+import co.edu.konrad.kolo.entities.InfoDebitoEntity;
+import co.edu.konrad.kolo.logic.InfoDebitoLogic;
 
 import java.util.List;
 import javax.ejb.EJB;
@@ -24,50 +24,51 @@ import javax.ws.rs.core.MediaType;
  */
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@Path("/InfoCredito")
+@Path("/InfoDebito")
 public class InfoDebitoResource {
     
     @EJB
-    private InfoCreditoLogic infocreditoLogic;
+    private InfoDebitoLogic infocreditoLogic;
     
     @GET
-    public List<InfoCreditoDTO> getInfoCreditoList() {
-        List<InfoCreditoEntity> infocredito = infocreditoLogic.obtenerInfoCreditos();
-        return InfoCreditoDTO.toInfoCreditoList(infocredito);
+    public List<InfoDebitoDTO> getInfoDebitoList() {
+        List<InfoDebitoEntity> infocredito = infocreditoLogic.obtenerInfoDebitos();
+        return InfoDebitoDTO.toInfoDebitoList(infocredito);
     }
     
+    @GET
     @Path("{id: \\d+}")
-    public InfoCreditoDTO getInfoCredito(@PathParam("id") Long id) {
-        InfoCreditoEntity infocredito = infocreditoLogic.obtenerInfoCredito(id);
+    public InfoDebitoDTO getInfoDebito(@PathParam("id") Long id) {
+        InfoDebitoEntity infocredito = infocreditoLogic.obtenerInfoDebito(id);
         if (infocredito == null) {
             throw new RuntimeException("El crédito solicitado no existe");
         }
-        return new InfoCreditoDTO(infocredito);
+        return new InfoDebitoDTO(infocredito);
     }
     
     @POST
-    public InfoCreditoDTO createInfoCredito(InfoCreditoDTO infoCreditoDTO) {
-        return new InfoCreditoDTO(infocreditoLogic.crearInfoCredito(infoCreditoDTO.toEntity()));
+    public InfoDebitoDTO createInfoDebito(InfoDebitoDTO iinfoDebitoDTO) {
+        return new InfoDebitoDTO(infocreditoLogic.crearInfoDebito(iinfoDebitoDTO.toEntity()));
     }
     
     @PUT
     @Path("{id: \\d+}")
-    public InfoCreditoDTO updateInfoCredito(@PathParam("id") Long id, InfoCreditoDTO infoCreditoDTO) {
-        InfoCreditoEntity entity = infocreditoLogic.obtenerInfoCredito(id);
+    public InfoDebitoDTO updateInfoDebito(@PathParam("id") Long id, InfoDebitoDTO iinfoDebitoDTO) {
+        InfoDebitoEntity entity = infocreditoLogic.obtenerInfoDebito(id);
         if (entity == null) {
             throw new RuntimeException("El credito solicitado no existe");
         }
-        return new InfoCreditoDTO(infocreditoLogic.actualizarInfoCredito(id, entity));
+        return new InfoDebitoDTO(infocreditoLogic.actualizarInfoDebito(id, entity));
     }
     
     @DELETE
     @Path("{id: \\d+}")
-    public void deleteInfoCredito(@PathParam("id") Long id) {
-        InfoCreditoEntity entity = infocreditoLogic.obtenerInfoCredito(id);
+    public void deleteInfoDebito(@PathParam("id") Long id) {
+        InfoDebitoEntity entity = infocreditoLogic.obtenerInfoDebito(id);
         if (entity == null) {
             throw new RuntimeException("El credito solicitado no existe");
         }
-        infocreditoLogic.eliminarInfoCredito(id);
+        infocreditoLogic.eliminarInfoDebito(id);
     }
     
 }
