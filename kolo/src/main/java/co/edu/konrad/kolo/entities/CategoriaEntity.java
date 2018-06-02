@@ -17,7 +17,7 @@ import javax.persistence.Id;
  * Clase para modelar la Entidad Proveedor
  * @author Jaime Lasso & Martín Cortés
  */
-@Entity (name = "Categoria")
+@Entity
 //@NamedQuery (name="Categoria.findByName", query="select e from Categoria e where e.nombreEstudiante = :nombre")
 public class CategoriaEntity implements Serializable {
     /**

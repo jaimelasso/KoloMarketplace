@@ -14,6 +14,7 @@ import javax.inject.Inject;
  * Clase que contiene la logica del Productos
  * @author David C.
  */
+@Stateless
 public class ProductosLogic {
             /**
      * Inyección del persistence de productos

@@ -56,7 +56,7 @@ public class CategoriaResource {
         if (entity == null) {
             throw new RuntimeException("la categoria no existe");
         }
-        return new CategoriaDTO(categoriaLogic.actualizarCategoria(id, entity));
+        return new CategoriaDTO(categoriaLogic.actualizarCategoria(id, categoriaDTO.toEntity()));
     }
 
     @DELETE

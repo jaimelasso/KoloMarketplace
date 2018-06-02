@@ -14,6 +14,7 @@ import javax.inject.Inject;
  * Clase que contiene la logica del TipoPago
  * @author David C.
  */
+@Stateless
 public class TipoPagoLogic {
                         /**
      * Inyección del persistence de tipoPago

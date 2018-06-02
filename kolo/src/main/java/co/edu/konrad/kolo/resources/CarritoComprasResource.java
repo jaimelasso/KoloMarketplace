@@ -62,7 +62,7 @@ public class CarritoComprasResource {
         if (entity == null) {
             throw new RuntimeException("El carrito de compras solicitado no existe");
         }
-        return new CarritoComprasDTO(carritoComprasLogic.actualizarCarritoCompras(id, entity));
+        return new CarritoComprasDTO(carritoComprasLogic.actualizarCarritoCompras(id, carritoComprasDTO.toEntity()));
     }
 
     @DELETE

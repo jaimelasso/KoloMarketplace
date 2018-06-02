@@ -57,7 +57,7 @@ public class FacturaResource {
         if (entity == null) {
             throw new RuntimeException("la categoria no existe");
         }
-        return new FacturaDTO(facturaLogic.actualizarFactura(id, entity));
+        return new FacturaDTO(facturaLogic.actualizarFactura(id, facturaDTO.toEntity()));
     }
 
     @DELETE

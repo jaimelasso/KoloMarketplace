@@ -29,13 +29,13 @@ public class CiudadResource {
     @EJB
     private CiudadLogic ciudadLogic;
     
-    @GET
+    @GET//correcto
     public List<CiudadDTO> getCiudadList (){
         List<CiudadEntity> ciudades = ciudadLogic.obtenerCiudads();
         return CiudadDTO.toCiudadList(ciudades);
     }
     
-    @GET
+    @GET//correcto
     @Path("{id: \\d+}")
     public CiudadDTO getCiudad(@PathParam("id") Long id){
         CiudadEntity ciudad = ciudadLogic.obtenerCiudad(id);
@@ -45,24 +45,24 @@ public class CiudadResource {
         return new CiudadDTO(ciudad);
     }
     
-    @POST
+    @POST//correcto
     public CiudadDTO createCiudad(CiudadDTO ciudadDTO){
         return new CiudadDTO(ciudadLogic.crearCiudad(ciudadDTO.toEntity()));
     }
     
-    @PUT
+    @PUT//correcto
     @Path("{id: \\d+}")
     public CiudadDTO updateCiudad (@PathParam("id") Long id, CiudadDTO ciudadDTO){
         CiudadEntity entity = ciudadLogic.obtenerCiudad(id);
         if(entity == null){
             throw new RuntimeException("La ciudad solicitada no existe");
         }
-        return new CiudadDTO(ciudadLogic.actualizarCiudad(id, entity));
+        return new CiudadDTO(ciudadLogic.actualizarCiudad(id, ciudadDTO.toEntity()));
     }
     
     @DELETE
-    @Path("{ciudadId: \\d+}")
-    public void deleteCiudad(@PathParam("ciudadId") Long id) {
+    @Path("{id: \\d+}")
+    public void deleteCiudad(@PathParam("id") Long id) {
         CiudadEntity entity = ciudadLogic.obtenerCiudad(id);
         if (entity == null) {
             throw new RuntimeException("La ciudada solicitada no existe");

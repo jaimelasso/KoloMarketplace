@@ -30,13 +30,13 @@ public class PaisResource {
     @EJB
     private PaisLogic paisLogic;
     
-    @GET
+    @GET//correcto
     public List<PaisDTO> getPaisList() {
         List<PaisEntity> paises = paisLogic.obtenerPaiss();
         return PaisDTO.toPaisList(paises);
     }
     
-    @GET
+    @GET//correcto
     @Path("{id: \\d+}")
     public PaisDTO getPais(@PathParam("id") Long id) {
         PaisEntity pais = paisLogic.obtenerPais(id);
@@ -46,19 +46,19 @@ public class PaisResource {
         return new PaisDTO(pais);
     }
     
-    @POST
+    @POST//correcto
     public PaisDTO createPais(PaisDTO paisDTO) {
         return new PaisDTO(paisLogic.crearPais(paisDTO.toEntity()));
     }
     
-    @PUT
+    @PUT//correcto
     @Path("{id: \\d+}")
     public PaisDTO updatePais(@PathParam("id") Long id, PaisDTO paisDTO) {
         PaisEntity entity = paisLogic.obtenerPais(id);
         if (entity == null) {
             throw new RuntimeException("El pais solicitado no existe");
         }
-        return new PaisDTO(paisLogic.actualizarPais(id, entity));
+        return new PaisDTO(paisLogic.actualizarPais(id, paisDTO.toEntity()));
     }
     
     @DELETE

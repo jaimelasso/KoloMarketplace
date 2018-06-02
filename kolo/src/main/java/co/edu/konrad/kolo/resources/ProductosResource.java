@@ -53,12 +53,12 @@ public class ProductosResource {
 
     @PUT
     @Path("{id: \\d+}")
-    public ProductoDTO updateProducto(@PathParam("id") Long id, ProductoDTO clienteDTO) {
+    public ProductoDTO updateProducto(@PathParam("id") Long id, ProductoDTO productoDTO) {
         ProductosEntity entity = productosLogic.obtenerProductos(id);
         if (entity == null) {
             throw new RuntimeException("El producto solicitado no existe");
         }
-        return new ProductoDTO(productosLogic.actualizarProductos(id, entity));
+        return new ProductoDTO(productosLogic.actualizarProductos(id, productoDTO.toEntity()));
     }
 
     @DELETE

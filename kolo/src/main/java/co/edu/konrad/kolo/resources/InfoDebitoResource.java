@@ -53,12 +53,12 @@ public class InfoDebitoResource {
     
     @PUT
     @Path("{id: \\d+}")
-    public InfoDebitoDTO updateInfoDebito(@PathParam("id") Long id, InfoDebitoDTO iinfoDebitoDTO) {
+    public InfoDebitoDTO updateInfoDebito(@PathParam("id") Long id, InfoDebitoDTO infoDebitoDTO) {
         InfoDebitoEntity entity = infocreditoLogic.obtenerInfoDebito(id);
         if (entity == null) {
             throw new RuntimeException("El credito solicitado no existe");
         }
-        return new InfoDebitoDTO(infocreditoLogic.actualizarInfoDebito(id, entity));
+        return new InfoDebitoDTO(infocreditoLogic.actualizarInfoDebito(id, infoDebitoDTO.toEntity()));
     }
     
     @DELETE

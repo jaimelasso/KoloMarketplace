@@ -58,7 +58,7 @@ public class TipoPagoResource {
         if (entity == null) {
             throw new RuntimeException("El tipo de pago solicitado no existe");
         }
-        return new TipoPagoDTO(tipoPagoLogic.actualizarTipoPago(id, entity));
+        return new TipoPagoDTO(tipoPagoLogic.actualizarTipoPago(id, tipoPagoDTO.toEntity()));
     }
 
     @DELETE

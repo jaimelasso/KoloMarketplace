@@ -14,6 +14,7 @@ import javax.inject.Inject;
  * Clase que contiene la logica del TipoDocumento
  * @author David C.
  */
+@Stateless
 public class TipoDocumentoLogic {
                     /**
      * Inyección del persistence de tipoDocumento

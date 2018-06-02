@@ -6,6 +6,7 @@
 package co.edu.konrad.kolo.entities;
 
 import java.io.Serializable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -66,7 +67,7 @@ public class ProductosEntity implements Serializable {
      /**
      * Variable que almacena y relaciona el ID del proveedor
      */
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn (name = "idProveedor")
     private ProveedorEntity proveedor;
     

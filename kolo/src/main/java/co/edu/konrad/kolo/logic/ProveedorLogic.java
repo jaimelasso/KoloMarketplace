@@ -14,6 +14,7 @@ import javax.inject.Inject;
  * Clase que contiene la logica del Proveedor
  * @author David C.
  */
+@Stateless
 public class ProveedorLogic {
                 /**
      * Inyección del persistence de proveedor

@@ -30,13 +30,13 @@ public class TipoDocumentoResource {
     @EJB
     private TipoDocumentoLogic tipoDocumentoLogic;
 
-    @GET
+    @GET//correcto
     public List<TipoDocumentoDTO> getTipoDocumentoList() {
         List<TipoDocumentoEntity> tipodocumentos = tipoDocumentoLogic.obtenerTipoDocumentos();
         return TipoDocumentoDTO.toTipoDocumentoList(tipodocumentos);
     }
 
-    @GET
+    @GET//correcto
     @Path("{id: \\d+}")
     public TipoDocumentoDTO getTipoDocumento(@PathParam("id") Long id) {
         TipoDocumentoEntity tipodocumento = tipoDocumentoLogic.obtenerTipoDocumento(id);
@@ -46,24 +46,24 @@ public class TipoDocumentoResource {
         return new TipoDocumentoDTO(tipodocumento);
     }
 
-    @POST
+    @POST//correcto
     public TipoDocumentoDTO createCliente(TipoDocumentoDTO tipoDocumentoDTO) {
         return new TipoDocumentoDTO(tipoDocumentoLogic.crearTipoDocumento(tipoDocumentoDTO.toEntity()));
     }
 
-    @PUT
+    @PUT//correcto
     @Path("{id: \\d+}")
     public TipoDocumentoDTO updateTipoDocumento(@PathParam("id") Long id, TipoDocumentoDTO tipoDocumentoDTO) {
         TipoDocumentoEntity entity = tipoDocumentoLogic.obtenerTipoDocumento(id);
         if (entity == null) {
             throw new RuntimeException("El tipo de documento solicitado no existe");
         }
-        return new TipoDocumentoDTO(tipoDocumentoLogic.actualizarTipoDocumento(id, entity));
+        return new TipoDocumentoDTO(tipoDocumentoLogic.actualizarTipoDocumento(id, tipoDocumentoDTO.toEntity()));
     }
 
     @DELETE
-    @Path("{id: \\d+}")
-    public void deleteTipoDocumento(@PathParam("id") Long id) {
+    @Path("{idTipoDocumento: \\d+}")
+    public void deleteTipoDocumento(@PathParam("idTipoDocumento") Long id) {
         TipoDocumentoEntity entity = tipoDocumentoLogic.obtenerTipoDocumento(id);
         if (entity == null) {
             throw new RuntimeException("El tipo de documento solicitado no existe");

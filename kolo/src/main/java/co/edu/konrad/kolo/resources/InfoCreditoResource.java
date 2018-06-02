@@ -61,7 +61,7 @@ public class InfoCreditoResource {
         if (entity == null) {
             throw new RuntimeException("El carrito de compras solicitado no existe");
         }
-        return new InfoCreditoDTO(infoCreditoLogic.actualizarInfoCredito(id, entity));
+        return new InfoCreditoDTO(infoCreditoLogic.actualizarInfoCredito(id, infoCreditoDTO.toEntity()));
     }
 
     @DELETE

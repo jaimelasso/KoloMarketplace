@@ -58,7 +58,7 @@ public class ClienteResource {
         if (entity == null) {
             throw new RuntimeException("El cliente solicitado no existe");
         }
-        return new ClienteDTO(clienteLogic.actualizarCliente(id, entity));
+        return new ClienteDTO(clienteLogic.actualizarCliente(id, clienteDTO.toEntity()));
     }
     
     @DELETE
