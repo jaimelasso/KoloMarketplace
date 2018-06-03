@@ -29,7 +29,7 @@ public class ProveedorEntity implements Serializable {
      * Llave primaria de la Entidad Proveedor
      */
     @Id
-    @Column (name = "idProveedor")
+    @Column (name = "id_Proveedor")
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long idProveedor;
     
