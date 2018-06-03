@@ -1,4 +1,4 @@
-package co.edu.konrad.kolo.persistence;
+ package co.edu.konrad.kolo.persistence;
 
 import co.edu.konrad.kolo.entities.TipoDocumentoEntity;
 import java.util.List;

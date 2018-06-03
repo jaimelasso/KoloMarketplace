@@ -35,7 +35,17 @@ public class ProveedorResource {
         List<ProveedorEntity> proveedores = proveedorLogic.obtenerProveedors();
         return ProveedorDTO.toProveedorList(proveedores);
     }
-
+    
+    @PUT//correcto
+    @Path("{id: \\id+}")
+    public ProveedorDTO updateProveedor(@PathParam("id") Long id, ProveedorDTO proveedorDTO) {
+        ProveedorEntity entity = proveedorLogic.obtenerProveedor(id);
+        if (entity == null) {
+            throw new RuntimeException("El proveedor solicitado no existe");
+        }
+        return new ProveedorDTO(proveedorLogic.actualizarProveedor(id, proveedorDTO.toEntity()));
+    }
+    
     @GET//correcto
     @Path("{id: \\d+}")
     public ProveedorDTO getProveedor(@PathParam("id") Long id) {
@@ -51,15 +61,7 @@ public class ProveedorResource {
         return new ProveedorDTO(proveedorLogic.crearProveedor(proveedorDTO.toEntity()));
     }
 
-    @PUT//correcto
-    @Path("{id: \\d+}")
-    public ProveedorDTO updateProveedor(@PathParam("id") Long id, ProveedorDTO proveedorDTO) {
-        ProveedorEntity entity = proveedorLogic.obtenerProveedor(id);
-        if (entity == null) {
-            throw new RuntimeException("El proveedor solicitado no existe");
-        }
-        return new ProveedorDTO(proveedorLogic.actualizarProveedor(id, proveedorDTO.toEntity()));
-    }
+    
 
     @DELETE
     @Path("{id: \\d+}")

@@ -35,7 +35,7 @@ public class ProveedorPersistence {
      * @return proveedor
      */
     public ProveedorEntity find(Long id) {
-        ProveedorEntity proveedor = em.find(ProveedorEntity.class, id);
+        ProveedorEntity proveedor = em.find(ProveedorEntity.class,id);
         return proveedor;
     }
 

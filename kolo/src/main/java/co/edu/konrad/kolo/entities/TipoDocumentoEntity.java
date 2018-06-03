@@ -11,37 +11,39 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 /**
  * Clase para modelar la Entidad Tipo de documento
  * @author Jaime Lasso & Martín Cortés
  */
 @Entity
-public class TipoDocumentoEntity implements Serializable{
+public class TipoDocumentoEntity implements Serializable {
+
     /**
      * Atributo estático para el manejo de versiones de la entidad
      */
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
     /**
      * Llave primaria de la Entidad TipoDocumento
      */
     @Id
-    @Column (name = "id_tipoDocumento")
-    @GeneratedValue (strategy = GenerationType.AUTO)
-    private Long idTipoDocumento;    
-    
+    @Column(name = "id_tipoDocumento")
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idTipoDocumento;
+
     /**
      * Variable que almacena el nombre del tipo de documento
      */
-    @Column (name = "tipo_documento")
+    @Column(name = "tipo_documento")
     private String tipoDocumento;
 
-     /**
+    /**
      * Métodos GET Y SET
-     * @return 
+     *
+     * @return
      */
-    
     public Long getIdTipoDocumento() {
         return idTipoDocumento;
     }
@@ -57,5 +59,5 @@ public class TipoDocumentoEntity implements Serializable{
     public void setTipoDocumento(String tipoDocumento) {
         this.tipoDocumento = tipoDocumento;
     }
-    
+
 }

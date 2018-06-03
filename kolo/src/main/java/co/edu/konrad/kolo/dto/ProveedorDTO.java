@@ -19,7 +19,7 @@ public class ProveedorDTO {
      * Construimos atributos de la clase con las columnas de la entidad
      */
     
-    private Long id;
+    private Long idProveedor;
     private Long nit;
     private String nombre;
     private String usuario;
@@ -44,7 +44,7 @@ public class ProveedorDTO {
      * @param proveedorEntity
      */
     public ProveedorDTO (ProveedorEntity proveedorEntity) {
-        this.id = proveedorEntity.getIdProveedor();
+        this.idProveedor = proveedorEntity.getIdProveedor();
         this.nit = proveedorEntity.getNitProveedor();
         this.nombre = proveedorEntity.getNombreProveedor();
         this.usuario = proveedorEntity.getUsuarioProveedor();
@@ -66,7 +66,7 @@ public class ProveedorDTO {
     public ProveedorEntity toEntity() {
         ProveedorEntity proveedor = new ProveedorEntity();
         
-        proveedor.setIdProveedor(this.id);
+        proveedor.setIdProveedor(this.idProveedor);
         proveedor.setNitProveedor(this.nit);
         proveedor.setNombreProveedor(this.nombre);
         proveedor.setUsuarioProveedor(this.usuario);
@@ -103,7 +103,7 @@ public class ProveedorDTO {
      */
 
     public Long getId() {
-        return id;
+        return idProveedor;
     }
 
     public Long getNit() {
@@ -155,7 +155,7 @@ public class ProveedorDTO {
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.idProveedor = id;
     }
 
     public void setNit(Long nit) {
