@@ -1,8 +1,40 @@
 (function ($) {
     //comentario
     $(document).ready(function () {
-        for (let index = 0; index < 5; index++) {
-            const producto = $(".product-item").clone()
+        /**
+         * Crea nuevas categorias quemadas
+         * @type Array
+         */
+//        var categorias = [
+//            {
+//                nombreCategoria: "Electro y tecnologia"
+//            },
+//            {
+//                nombreCategoria: "Hogar"
+//            },
+//            {
+//                nombreCategoria: "Deportes"
+//            },
+//            {
+//                nombreCategoria: "Accesorios"
+//            },
+//            {
+//                nombreCategoria: "Vestir"
+//            }]
+//        categorias.forEach(function (categoria) {
+//            $.ajax({
+//                url: "/kolo/api/Categoria",
+//                contentType: "application/json",
+//                method: "POST",
+//                dataType: "json",
+//                data: JSON.stringify(categoria)
+//            }).fail(function (xhr, status, error) {
+//                alert("No se pudo crear la categoria")
+//            })
+//        })
+        
+        for (var index = 0; index < 5; index++) {
+            var producto = $(".product-item").clone()
             // producto.removeAttr("hidden")
             $("#products-container").append(producto)
         }
@@ -19,27 +51,32 @@
         }
 
         $("#cat-filter").on("click", "a", function () {
-            let filter = $(this).data("filter")
+            var filter = $(this).data("filter")
             filterSelection(filter)
         })
 
         $(".product-item:odd").addClass("cat1")
         $(".product-item:even").addClass("cat2")
 
-        $(".list-group-item").on("click", () => $(".list-group-item").toggleClass("active"))
+        $(".list-group-item").on("click", function () {
+            $(".list-group-item").toggleClass("active")
+        })
 
-        
-
-        // $.ajax({
-        //     url: "/kolo/api/Categoria",
-        //     contentType: "application/json",
-        //     method: "GET",
-        //     dataType: "json"
-        // }).done(function (data) {
-        //     // crear bloques de categorias
-        // }).fail(function (xhr, status, error) {
-        //     throw error
-        // })
+        /**
+         * Consulta las categorias 
+         */
+        $.ajax({
+            url: "/kolo/api/Categoria",
+            contentType: "application/json",
+            method: "GET",
+            dataType: "json"
+        }).done(function (data) {
+            data.forEach(function (categoria) {
+                $("#cat-filter").append('<li role="presentation"><a data-filter="' + categoria.idCategoria + '" id="' + categoria.idCategoria + 'dsf">' + categoria.nombreCategoria + '</a></li>')
+            })
+        }).fail(function (xhr, status, error) {
+            throw error
+        })
 
         // $.ajax({
         //     url: "/kolo/api/Productos",
@@ -51,6 +88,17 @@
         // }).fail(function (xhr, status, error) {
         //     throw error
         // })
+        
+         $.ajax({
+             url: "/kolo/api/Proveedor",
+             contentType: "application/json",
+             method: "GET",
+             dataType: "json"
+         }).done(function (data) {
+             debugger;
+         }).fail(function (xhr, status, error) {
+             throw error
+         })
 
         // $.ajax({
         //     url: "/kolo/api/CarritoCompras" + idCarritoCompras,
@@ -64,15 +112,15 @@
         // })
     })
 
-
-
     function filterSelection(c) {
         var x, i;
         x = document.getElementsByClassName("product-item");
-        if (c == "all") c = "";
+        if (c == "all")
+            c = "";
         for (i = 0; i < x.length; i++) {
             w3RemoveClass(x[i], "show");
-            if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+            if (x[i].className.indexOf(c) > -1)
+                w3AddClass(x[i], "show");
         }
     }
 
